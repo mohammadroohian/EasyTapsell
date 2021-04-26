@@ -24,5 +24,19 @@ namespace EasyTapsell
         public UnityEvent OnError { get => m_onError; private set => m_onError = value; }
         public UnityEvent OnNoNetwork { get => m_onNoNetwork; private set => m_onNoNetwork = value; }
         public UnityEvent OnExpiring { get => m_onExpiring; private set => m_onExpiring = value; }
+
+
+        // monoBehaviour___________________________________________________________
+        void Start()
+        {
+            // add this trigger event to manager
+            TapsellManager.Instance.OnAdCompeleted.AddListener(() => OnAdCompeleted.Invoke());
+            TapsellManager.Instance.OnAdCanceled.AddListener(() => OnAdCanceled.Invoke());
+            TapsellManager.Instance.OnAdAvailable.AddListener(() => OnAdAvailable.Invoke());
+            TapsellManager.Instance.OnNoAdAvailable.AddListener(() => OnNoAdAvailable.Invoke());
+            TapsellManager.Instance.OnError.AddListener(() => OnError.Invoke());
+            TapsellManager.Instance.OnNoNetwork.AddListener(() => OnNoNetwork.Invoke());
+            TapsellManager.Instance.OnExpiring.AddListener(() => OnExpiring.Invoke());
+        }
     }
 }

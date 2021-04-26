@@ -66,9 +66,6 @@ namespace EasyTapsell
                     this.Available = true;
                     this.Ad = result;
 
-                    // Invoke event.
-                    TplEventTrigger.OnAdAvailable.Invoke();
-
                     // Invoke TapsellManager events.
                     TapsellManager.Instance.OnAdAvailable.Invoke();
                 },
@@ -77,9 +74,6 @@ namespace EasyTapsell
                 {
                     // onNoAdAvailable
                     Debug.Log("No Ad Available");
-
-                    // Invoke event.
-                    TplEventTrigger.OnNoAdAvailable.Invoke();
 
                     // Invoke TapsellManager events.
                     TapsellManager.Instance.OnNoAdAvailable.Invoke();
@@ -90,9 +84,6 @@ namespace EasyTapsell
                     // onError
                     Debug.Log(error.message);
 
-                    // Invoke event.
-                    TplEventTrigger.OnError.Invoke();
-
                     // Invoke TapsellManager events.
                     TapsellManager.Instance.OnError.Invoke();
                 },
@@ -101,9 +92,6 @@ namespace EasyTapsell
                 {
                     // onNoNetwork
                     Debug.Log("No Network: " + zoneId);
-
-                    // Invoke event.
-                    TplEventTrigger.OnNoNetwork.Invoke();
 
                     // Invoke TapsellManager events.
                     TapsellManager.Instance.OnNoNetwork.Invoke();
@@ -115,9 +103,6 @@ namespace EasyTapsell
                     Debug.Log("Expiring");
                     this.Available = false;
                     this.Ad = null;
-
-                    // Invoke event.
-                    TplEventTrigger.OnExpiring.Invoke();
 
                     // Invoke TapsellManager events.
                     TapsellManager.Instance.OnExpiring.Invoke();
@@ -139,9 +124,6 @@ namespace EasyTapsell
             // Invoke OnAdAvailable events.
             if (AutoShowAd)
             {
-                // Invoke event.
-                TplEventTrigger.OnAdAvailable.Invoke();
-
                 // Invoke TapsellManager events.
                 TapsellManager.Instance.OnAdAvailable.Invoke();
             }
@@ -178,19 +160,11 @@ namespace EasyTapsell
             // You can validate suggestion from you server by sending a request from your game server to tapsell, passing adId to validate it
             if ((result.completed && result.rewarded) || AdType == TapsellAdType.Banner_Interstitial || AdType == TapsellAdType.Video_Interstitial)
             {
-                // Invoke event.
-                if (TplEventTrigger != null)
-                    TplEventTrigger.OnAdCompeleted.Invoke();
-
                 // Invoke TapsellManager events.
                 TapsellManager.Instance.OnAdCompeleted.Invoke();
             }
             else
             {
-                // Invoke event.
-                if (TplEventTrigger != null)
-                    TplEventTrigger.OnAdCanceled.Invoke();
-
                 // Invoke TapsellManager events.
                 TapsellManager.Instance.OnAdCanceled.Invoke();
             }
