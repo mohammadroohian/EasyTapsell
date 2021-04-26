@@ -1,6 +1,7 @@
 # EasyTapsell
 
 [![Unity 2019.4.7+](https://img.shields.io/badge/unity-2019.4.7%2B-blue.svg)](https://unity3d.com/get-unity/download)
+[![License: MIT](https://img.shields.io/badge/License-MIT-brightgreen.svg)](https://github.com/mohammadroohian/PAction/blob/master/LICENSE)
 
 Easily use [Tapsell](https://tapsell.ir) advertising service!
 ____________
