@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f876f64bbb9f7194686d458b6c462583, type: 3}
+  m_Name: MessageBoxProfileCollection
+  m_EditorClassIdentifier: 
+  m_MessageBoxProfiles:
+  - {fileID: 11400000, guid: 72d3a040e5dbf6247a6cd4fad42aaf77, type: 2}
+  - {fileID: 11400000, guid: 115ffe32b4f3e5d47a31ff797e78ff09, type: 2}
+  - {fileID: 11400000, guid: b8010fcec2d95354081a539e9ce73271, type: 2}

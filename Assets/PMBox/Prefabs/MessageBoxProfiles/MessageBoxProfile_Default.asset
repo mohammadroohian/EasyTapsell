@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c581e755b39dd904fa6051bba4de7998, type: 3}
+  m_Name: MessageBoxProfile_Default
+  m_EditorClassIdentifier: 
+  m_key: default
+  m_skin: {fileID: 1333846411354961997, guid: 678e592fbdea9774ea6c181b304dd4e2, type: 3}
+  m_alignment: 4
+  m_autoHide: 1
+  m_autoHideTime: 3
+  m_showSound: {fileID: 8300000, guid: 8cae35c2adc15cc40830eacc15820b32, type: 3}
+  m_hideSound: {fileID: 8300000, guid: f03d8c734e847164f8a70eb5b60d8b70, type: 3}
+  m_onShow:
+    m_PersistentCalls:
+      m_Calls: []
+  m_onHide:
+    m_PersistentCalls:
+      m_Calls: []
+  m_textContents: []
+  m_imageContents:
+  - m_key: default_picture
+    m_value: {fileID: 21300000, guid: fa80b22512fe66647a9825649556fb17, type: 3}
