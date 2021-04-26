@@ -1,6 +1,5 @@
 ﻿using TapsellSDK;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.UI;
 
 namespace EasyTapsell
@@ -20,17 +19,10 @@ namespace EasyTapsell
         private TapsellAd m_ad = null;
         private bool m_available = false;
         [SerializeField] private string m_zoneId = "YOUR ZONE ID";
-        private UnityEvent m_onAdCompeleted = new UnityEvent();
-        private UnityEvent m_onAdCanceled = new UnityEvent();
-        private UnityEvent m_onAdAvailable = new UnityEvent();
-        public UnityEvent m_onNoAdAvailable = new UnityEvent();
-        private UnityEvent m_onError = new UnityEvent();
-        private UnityEvent m_onNoNetwork = new UnityEvent();
-        private UnityEvent m_onExpiring = new UnityEvent();
-        [SerializeField] bool m_showLodingDialog = false;
+        [SerializeField] private TapsellEventTrigger m_tplEventTrigger = null;
+        [SerializeField] bool m_showLoadingDialog = false;
         [SerializeField] private bool m_autoAddRequestToButton = false;
         [SerializeField] bool m_autoShowAd = true;// If be true the ad will be shown after request automaticly.
-        [SerializeField] bool m_invokeConfigEvents = false;
 
 
         // property________________________________________________________________
@@ -38,38 +30,28 @@ namespace EasyTapsell
         public TapsellAd Ad { get => m_ad; set => m_ad = value; }
         public bool Available { get => m_available; set => m_available = value; }
         public string ZoneId { get => m_zoneId; set => m_zoneId = value; }
-        public UnityEvent OnAdCompeleted { get => m_onAdCompeleted; private set => m_onAdCompeleted = value; }
-        public UnityEvent OnAdCanceled { get => m_onAdCanceled; private set => m_onAdCanceled = value; }
-        public UnityEvent OnAdAvailable { get => m_onAdAvailable; private set => m_onAdAvailable = value; }
-        public UnityEvent OnError { get => m_onError; private set => m_onError = value; }
-        public UnityEvent OnNoNetwork { get => m_onNoNetwork; private set => m_onNoNetwork = value; }
-        public UnityEvent OnExpiring { get => m_onExpiring; private set => m_onExpiring = value; }
-        public bool ShowLodingDialog { get => m_showLodingDialog; set => m_showLodingDialog = value; }
+        public TapsellEventTrigger TplEventTrigger { get => m_tplEventTrigger; private set => m_tplEventTrigger = value; }
+        public bool ShowLoadingDialog { get => m_showLoadingDialog; set => m_showLoadingDialog = value; }
         public bool AutoAddRequestToButton { get => m_autoAddRequestToButton; private set => m_autoAddRequestToButton = value; }
         public bool AutoShowAd { get => m_autoShowAd; private set => m_autoShowAd = value; }
-        public bool InvokeConfigEvents { get => m_invokeConfigEvents; private set => m_invokeConfigEvents = value; }
 
 
         // monoBehaviour___________________________________________________________
         private void Awake()
         {
-            // Add request video ad for help automaticly.
+            // Add request video ad for help automatically.
             if (AutoAddRequestToButton)
             {
                 GetComponent<Button>().onClick.AddListener(RequestAd);
             }
 
-            // Check show ad automaticly or not after when video is avalible.
-            if (AutoShowAd)
-                OnAdAvailable.AddListener(ShowAd);
+            // check TplEventTrigger not null
+            if (TplEventTrigger == null)
+                TplEventTrigger = GetComponent<TapsellEventTrigger>();
 
-            // Add Hide dilog after request video.
-            OnAdCompeleted.AddListener(TapsellManager.Instance.HideVideoloadingDialog);
-            OnAdCanceled.AddListener(TapsellManager.Instance.HideVideoloadingDialog);
-            m_onNoAdAvailable.AddListener(TapsellManager.Instance.HideVideoloadingDialog);
-            OnError.AddListener(TapsellManager.Instance.HideVideoloadingDialog);
-            OnNoNetwork.AddListener(TapsellManager.Instance.HideVideoloadingDialog);
-            OnExpiring.AddListener(TapsellManager.Instance.HideVideoloadingDialog);
+            // Check show ad automatically or not after when video is availble.
+            if (AutoShowAd)
+                TplEventTrigger.OnAdAvailable.AddListener(ShowAd);
         }
 
 
@@ -85,11 +67,10 @@ namespace EasyTapsell
                     this.Ad = result;
 
                     // Invoke event.
-                    OnAdAvailable.Invoke();
+                    TplEventTrigger.OnAdAvailable.Invoke();
 
-                    // Invoke TapsellConfig events.
-                    if (InvokeConfigEvents)
-                        TapsellManager.Instance.OnAdAvailable.Invoke();
+                    // Invoke TapsellManager events.
+                    TapsellManager.Instance.OnAdAvailable.Invoke();
                 },
 
                 (string zoneId) =>
@@ -98,11 +79,10 @@ namespace EasyTapsell
                     Debug.Log("No Ad Available");
 
                     // Invoke event.
-                    m_onNoAdAvailable.Invoke();
+                    TplEventTrigger.OnNoAdAvailable.Invoke();
 
-                    // Invoke TapsellConfig events.
-                    if (InvokeConfigEvents)
-                        TapsellManager.Instance.OnNoAdAvailable.Invoke();
+                    // Invoke TapsellManager events.
+                    TapsellManager.Instance.OnNoAdAvailable.Invoke();
                 },
 
                 (TapsellError error) =>
@@ -111,11 +91,10 @@ namespace EasyTapsell
                     Debug.Log(error.message);
 
                     // Invoke event.
-                    OnError.Invoke();
+                    TplEventTrigger.OnError.Invoke();
 
-                    // Invoke TapsellConfig events.
-                    if (InvokeConfigEvents)
-                        TapsellManager.Instance.OnError.Invoke();
+                    // Invoke TapsellManager events.
+                    TapsellManager.Instance.OnError.Invoke();
                 },
 
                 (string zoneId) =>
@@ -124,11 +103,10 @@ namespace EasyTapsell
                     Debug.Log("No Network: " + zoneId);
 
                     // Invoke event.
-                    OnNoNetwork.Invoke();
+                    TplEventTrigger.OnNoNetwork.Invoke();
 
-                    // Invoke TapsellConfig events.
-                    if (InvokeConfigEvents)
-                        TapsellManager.Instance.OnNoNetwork.Invoke();
+                    // Invoke TapsellManager events.
+                    TapsellManager.Instance.OnNoNetwork.Invoke();
                 },
 
                 (TapsellAd result) =>
@@ -139,22 +117,21 @@ namespace EasyTapsell
                     this.Ad = null;
 
                     // Invoke event.
-                    OnExpiring.Invoke();
+                    TplEventTrigger.OnExpiring.Invoke();
 
-                    // Invoke TapsellConfig events.
-                    if (InvokeConfigEvents)
-                        TapsellManager.Instance.OnExpiring.Invoke();
+                    // Invoke TapsellManager events.
+                    TapsellManager.Instance.OnExpiring.Invoke();
                     RequestAd(result.zoneId, false);
                 }
             );
         }
         public void RequestAd()
         {
-            if (ShowLodingDialog)
-                TapsellManager.Instance.ShowVideoloadingDialog();
+            if (ShowLoadingDialog)
+                TapsellManager.Instance.ShowAdLoadingDialog();
 #if UNITY_ANDROID && !UNITY_EDITOR
             // Set reward function.
-            Tapsell.SetRewardListener(Tappsell_OnGetRiward);
+            Tapsell.SetRewardListener(Tapsell_OnGetReward);
 
             // Get ad from tapsell.
             RequestAd(m_zoneId, false);
@@ -163,12 +140,10 @@ namespace EasyTapsell
             if (AutoShowAd)
             {
                 // Invoke event.
-                if (OnAdAvailable != null)
-                    OnAdAvailable.Invoke();
+                TplEventTrigger.OnAdAvailable.Invoke();
 
-                // Invoke TapsellConfig events.
-                if (InvokeConfigEvents)
-                    TapsellManager.Instance.OnAdAvailable.Invoke();
+                // Invoke TapsellManager events.
+                TapsellManager.Instance.OnAdAvailable.Invoke();
             }
 #elif !UNITY_ANDROID
             Debug.LogError("TapsellVideoCaller just work on android");
@@ -198,26 +173,26 @@ namespace EasyTapsell
             Debug.LogError("TapsellVideoCaller just work on android");
 #endif
         }
-        private void Tappsell_OnGetRiward(TapsellAdFinishedResult result)
+        private void Tapsell_OnGetReward(TapsellAdFinishedResult result)
         {
             // You can validate suggestion from you server by sending a request from your game server to tapsell, passing adId to validate it
             if ((result.completed && result.rewarded) || AdType == TapsellAdType.Banner_Interstitial || AdType == TapsellAdType.Video_Interstitial)
             {
                 // Invoke event.
-                OnAdCompeleted.Invoke();
+                if (TplEventTrigger != null)
+                    TplEventTrigger.OnAdCompeleted.Invoke();
 
-                // Invoke TapsellConfig events.
-                if (InvokeConfigEvents)
-                    TapsellManager.Instance.m_onAdCompeleted.Invoke();
+                // Invoke TapsellManager events.
+                TapsellManager.Instance.OnAdCompeleted.Invoke();
             }
             else
             {
                 // Invoke event.
-                OnAdCanceled.Invoke();
+                if (TplEventTrigger != null)
+                    TplEventTrigger.OnAdCanceled.Invoke();
 
-                // Invoke TapsellConfig events.
-                if (InvokeConfigEvents)
-                    TapsellManager.Instance.OnAdCanceled.Invoke();
+                // Invoke TapsellManager events.
+                TapsellManager.Instance.OnAdCanceled.Invoke();
             }
         }
     }

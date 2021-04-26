@@ -93,101 +93,84 @@ namespace EasyTapsell
                 Instance.OnCancel_Click(caller);
             });
         }
-        private void ShowFakeVideoAddDialog()
-        {
-            this.transform.GetChild(0).gameObject.SetActive(true);
-        }
-        private void CloseFakeVideoAddDialog()
-        {
-            this.transform.GetChild(0).gameObject.SetActive(false);
-        }
+        private void ShowFakeVideoAddDialog() => this.transform.GetChild(0).gameObject.SetActive(true);
+        private void CloseFakeVideoAddDialog() => this.transform.GetChild(0).gameObject.SetActive(false);
         private void OnAdCompeleted_Click(TapsellAdCaller caller)
         {
-            // Invoke TapsellConfig events.
-            if (caller.InvokeConfigEvents)
-                TapsellManager.Instance.m_onAdCompeleted.Invoke();
+            // Invoke TapsellManager events.
+            TapsellManager.Instance.OnAdCompeleted.Invoke();
 
             // Invoke TapsellVideoCaller events
-            if (caller.OnAdCompeleted != null)
-                caller.OnAdCompeleted.Invoke();
+            if (caller.TplEventTrigger != null)
+                caller.TplEventTrigger.OnAdCompeleted.Invoke();
 
             // Close fake add dialog.
             CloseFakeVideoAddDialog();
         }
         private void OnCancel_Click(TapsellAdCaller caller)
         {
-            // Invoke TapsellConfig events.
-            if (caller.InvokeConfigEvents)
-                TapsellManager.Instance.OnAdCanceled.Invoke();
+            // Invoke TapsellManager events.
+            TapsellManager.Instance.OnAdCanceled.Invoke();
 
             // Invoke TapsellVideoCaller events
-            if (caller.OnAdCanceled != null)
-                caller.OnAdCanceled.Invoke();
+            if (caller.TplEventTrigger != null)
+                caller.TplEventTrigger.OnAdCanceled.Invoke();
 
             // Close fake ad dialog.
             CloseFakeVideoAddDialog();
         }
         private void OnAdAvailable_Click(TapsellAdCaller caller)
         {
-            // Invoke TapsellConfig events.
-            if (caller.InvokeConfigEvents)
-                TapsellManager.Instance.OnAdAvailable.Invoke();
+            // Invoke TapsellManager events.
+            TapsellManager.Instance.OnAdAvailable.Invoke();
 
             // Invoke TapsellVideoCaller events
-            if (caller.OnAdAvailable != null)
-                caller.OnAdAvailable.Invoke();
+            if (caller.TplEventTrigger != null)
+                caller.TplEventTrigger.OnAdAvailable.Invoke();
 
             // Close fake ad dialog.
             CloseFakeVideoAddDialog();
         }
         private void OnNoAdAvailable_Click(TapsellAdCaller caller)
         {
-            // Invoke TapsellConfig events.
-            if (caller.InvokeConfigEvents)
-                TapsellManager.Instance.OnNoAdAvailable.Invoke();
+            // Invoke TapsellManager events.
+            TapsellManager.Instance.OnNoAdAvailable.Invoke();
 
             // Invoke TapsellVideoCaller events
-            if (caller.m_onNoAdAvailable != null)
-                caller.m_onNoAdAvailable.Invoke();
+            caller.TplEventTrigger.OnNoAdAvailable.Invoke();
 
             // Close fake ad dialog.
             CloseFakeVideoAddDialog();
         }
         private void OnError_Click(TapsellAdCaller caller)
         {
-            // Invoke TapsellConfig events.
-            if (caller.InvokeConfigEvents)
-                TapsellManager.Instance.OnError.Invoke();
+            // Invoke TapsellManager events.
+            TapsellManager.Instance.OnError.Invoke();
 
             // Invoke TapsellVideoCaller events
-            if (caller.OnError != null)
-                caller.OnError.Invoke();
+            caller.TplEventTrigger.OnError.Invoke();
 
             // Close fake ad dialog.
             CloseFakeVideoAddDialog();
         }
         private void OnNoNetwork_Click(TapsellAdCaller caller)
         {
-            // Invoke TapsellConfig events.
-            if (caller.InvokeConfigEvents)
-                TapsellManager.Instance.OnNoNetwork.Invoke();
+            // Invoke TapsellManager events.
+            TapsellManager.Instance.OnNoNetwork.Invoke();
 
             // Invoke TapsellVideoCaller events
-            if (caller.OnNoNetwork != null)
-                caller.OnNoNetwork.Invoke();
+            caller.TplEventTrigger.OnNoNetwork.Invoke();
 
             // Close fake ad dialog.
             CloseFakeVideoAddDialog();
         }
         private void OnExpiring_Click(TapsellAdCaller caller)
         {
-            // Invoke TapsellConfig events.
-            if (caller.InvokeConfigEvents)
-                TapsellManager.Instance.OnExpiring.Invoke();
+            // Invoke TapsellManager events.
+            TapsellManager.Instance.OnExpiring.Invoke();
 
             // Invoke TapsellVideoCaller events
-            if (caller.OnExpiring != null)
-                caller.OnExpiring.Invoke();
+            caller.TplEventTrigger.OnExpiring.Invoke();
 
             // Close fake ad dialog.
             CloseFakeVideoAddDialog();

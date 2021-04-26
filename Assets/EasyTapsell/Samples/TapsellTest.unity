@@ -247,6 +247,7 @@ GameObject:
   - component: {fileID: 286090691}
   - component: {fileID: 286090693}
   - component: {fileID: 286090692}
+  - component: {fileID: 286090694}
   m_Layer: 5
   m_Name: '>  [ * ] . TapsellAdCaller . RequestAd()'
   m_TagString: Untagged
@@ -287,13 +288,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_adType: 0
   m_zoneId: YOUR ZONE ID
-  m_onNoAdAvailable:
-    m_PersistentCalls:
-      m_Calls: []
-  m_showLodingDialog: 0
+  m_tplEventTrigger: {fileID: 0}
+  m_showLoadingDialog: 1
   m_autoAddRequestToButton: 0
   m_autoShowAd: 1
-  m_invokeConfigEvents: 1
 --- !u!114 &286090693
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -323,6 +321,39 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &286090694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 286090690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7887bf885efe80043aa738e1794cb5ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_onAdCompeleted:
+    m_PersistentCalls:
+      m_Calls: []
+  m_onAdCanceled:
+    m_PersistentCalls:
+      m_Calls: []
+  m_onAdAvailable:
+    m_PersistentCalls:
+      m_Calls: []
+  m_onNoAdAvailable:
+    m_PersistentCalls:
+      m_Calls: []
+  m_onError:
+    m_PersistentCalls:
+      m_Calls: []
+  m_onNoNetwork:
+    m_PersistentCalls:
+      m_Calls: []
+  m_onExpiring:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &796387004
 GameObject:
   m_ObjectHideFlags: 0
@@ -1296,10 +1327,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1464130391285986, guid: 7423623e731ce7b4f88888ebe91f5b80, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1879020024310406, guid: 7423623e731ce7b4f88888ebe91f5b80, type: 3}
       propertyPath: m_Name
       value: Tapsell FakeAd Video
