@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-namespace Pashmak.Server.Ads._Tapsell
+namespace EasyTapsell
 {
     public class TapsellAdCaller : MonoBehaviour
     {

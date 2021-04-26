@@ -1,11 +1,10 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-namespace Pashmak.Server.Ads._Tapsell
+namespace EasyTapsell
 {
     public class TapsellAdFakeShow : MonoBehaviour
     {
-#if UNITY_ANDROID && UNITY_EDITOR
         // variable____________________________________________________________________
         private static TapsellAdFakeShow m_instance;
         [SerializeField] private Button m_btn_OnAdCompeleted = null;
@@ -42,6 +41,7 @@ namespace Pashmak.Server.Ads._Tapsell
 
 
         // function________________________________________________________________
+#if UNITY_ANDROID && UNITY_EDITOR
         public static void ShowFakeVideoAdd(TapsellAdCaller caller)
         {
             // Show fake ad dialog.

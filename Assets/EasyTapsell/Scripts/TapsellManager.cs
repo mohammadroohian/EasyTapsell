@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace Pashmak.Server.Ads._Tapsell
+namespace EasyTapsell
 {
     public class TapsellManager : MonoBehaviour
     {
@@ -47,12 +47,12 @@ namespace Pashmak.Server.Ads._Tapsell
                 Instance = this;
             else Destroy(gameObject);
 
-            // Deactive videoLoading dialog.
+            // Deactivate Ad loading dialog.
             HideVideoloadingDialog();
         }
         void Start()
         {
-            // Initialize Tappsell.
+            // Initialize Tapsell.
             if (m_initializeAtStart)
                 InitializeTapsell();
 
