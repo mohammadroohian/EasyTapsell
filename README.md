@@ -42,3 +42,28 @@ You can customize the default user interface or use your own.
 4. Install [Tapsell](https://docs.tapsell.ir/plus-sdk/unity/initialize-android/)
 5. Download `.unitypackage` file from [releases](https://github.com/mohammadroohian/EasyTapsell/releases).
 6. Import it into your project.
+
+## Overview
+To learn more about how these components work, check out the sample scenes.
+The following are a number of practical cases.
+
+![showcase](https://user-images.githubusercontent.com/80090999/116399234-f281db00-a83d-11eb-905d-2edc51e11f23.gif)
+
+### Events
+* OnAdCompeleted
+* OnAdCanceled
+* OnAdAvailable
+* OnNoAdAvailable
+* OnError
+* OnNoNetwork
+* OnExpiring
+
+## How to use
+1. Drag and drop `Tapsell Manager` to scene from prefabs folder (set your tapsell key into `Tapsell Key` filed).
+3. Drag and drop `Tapsell ManagerUI` to scene from prefabs folder.
+4. Drag and drop `Tapsell FakeAd Video` to scene from prefabs folder.
+5. Customize `Tapsell ManagerUI` itmes.
+6. Use `TapsellEventTrigger` component wherever you need to run the tasks you want at a particular event.
+7. Use `TapsellAdCaller` component to request an ad (set your zone id into `Zone ID` filed).
+
+![USE](https://user-images.githubusercontent.com/80090999/116403125-70e07c00-a842-11eb-9bd6-8e0a141c098c.gif)
