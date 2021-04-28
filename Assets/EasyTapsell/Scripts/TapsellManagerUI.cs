@@ -21,6 +21,7 @@ namespace EasyTapsell
             if (Instance == null)
             {
                 Instance = this;
+                transform.SetParent(null); // if object has parent DontDestroyOnLoad not working.
                 DontDestroyOnLoad(gameObject);
             }
             else
