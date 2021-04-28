@@ -10,13 +10,13 @@ namespace EasyTapsell
         public enum TapsellEventType
         {
             None = 0,
-            OnAdCompeleted = 1 << 0, // 1
-            OnAdCanceled = 1 << 1, // 2
-            OnAdAvailable = 1 << 2, // 4
-            OnNoAdAvailable = 1 << 3, // 8
-            OnError = 1 << 4, // 16
-            OnNoNetwork = 1 << 5, // 32
-            OnExpiring = 1 << 6, // 64
+            AdCompeleted = 1 << 0, // 1
+            AdCanceled = 1 << 1, // 2
+            AdAvailable = 1 << 2, // 4
+            NoAdAvailable = 1 << 3, // 8
+            Error = 1 << 4, // 16
+            NoNetwork = 1 << 5, // 32
+            Expiring = 1 << 6, // 64
             All = ~0
         }
 
