@@ -19,13 +19,15 @@ namespace EasyTapsell
         void Awake()
         {
             if (Instance == null)
+            {
                 Instance = this;
-            else Destroy(gameObject);
+                DontDestroyOnLoad(gameObject);
+            }
+            else
+                Destroy(gameObject);
 
             // Deactivate Ad loading dialog.
             HideAdLoadingDialog();
-
-            DontDestroyOnLoad(gameObject);
         }
         void Start()
         {
