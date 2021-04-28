@@ -6,7 +6,6 @@ namespace EasyTapsell
     public class TapsellAdFakeShow : MonoBehaviour
     {
         // variable____________________________________________________________________
-        private static TapsellAdFakeShow m_instance;
         [SerializeField] private Button m_btn_OnAdCompeleted = null;
         [SerializeField] private Button m_btn_OnCanceled = null;
         [SerializeField] private Button m_btn_OnAdAvailable = null;
@@ -17,7 +16,7 @@ namespace EasyTapsell
 
 
         // property________________________________________________________________
-        public static TapsellAdFakeShow Instance { get => m_instance; set => m_instance = value; }
+        public static TapsellAdFakeShow Instance { get; private set; }
         public Button Btn_OnAdCompeleted { get => m_btn_OnAdCompeleted; private set => m_btn_OnAdCompeleted = value; }
         public Button Btn_OnCanceled { get => m_btn_OnCanceled; private set => m_btn_OnCanceled = value; }
         public Button Btn_OnAdAvailable { get => m_btn_OnAdAvailable; private set => m_btn_OnAdAvailable = value; }

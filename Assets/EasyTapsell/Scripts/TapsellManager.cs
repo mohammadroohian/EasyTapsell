@@ -39,10 +39,13 @@ namespace EasyTapsell
         void Awake()
         {
             if (Instance == null)
+            {
                 Instance = this;
-            else Destroy(gameObject);
+                DontDestroyOnLoad(gameObject);
+            }
+            else
+                Destroy(gameObject);
 
-            DontDestroyOnLoad(gameObject);
         }
         void Start()
         {
