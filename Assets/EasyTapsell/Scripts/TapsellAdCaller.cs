@@ -106,7 +106,7 @@ namespace EasyTapsell
         public void RequestAd()
         {
             if (ShowLoadingDialog)
-                TapsellManager.Instance.ShowAdLoadingDialog();
+                TapsellManagerUI.Instance.ShowAdLoadingDialog();
 #if UNITY_ANDROID && !UNITY_EDITOR
             // Set reward function.
             Tapsell.SetRewardListener(Tapsell_OnGetReward);

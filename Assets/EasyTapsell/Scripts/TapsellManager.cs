@@ -9,7 +9,6 @@ namespace EasyTapsell
         // variable____________________________________________________________________
         [SerializeField] private bool m_initializeAtStart = true;
         [SerializeField] private string m_tapsellKey = "YOUR TAPSELL KEY";
-        [SerializeField] private RectTransform m_adLoadingDialog = null;
         [SerializeField] private UnityEvent m_onAdCompeleted = new UnityEvent();
         [SerializeField] private UnityEvent m_onAdCanceled = new UnityEvent();
         [SerializeField] private UnityEvent m_onAdAvailable = new UnityEvent();
@@ -20,18 +19,13 @@ namespace EasyTapsell
 
 
         // Property________________________________________________
-        public static TapsellManager Instance
-        {
-            get;
-            private set;
-        }
+        public static TapsellManager Instance { get; private set; }
         public static bool IsInitialized
         {
             get;
             private set;
         }
         public string TapsellKey { get => m_tapsellKey; private set => m_tapsellKey = value; }
-        public RectTransform AdLoadingDialog { get => m_adLoadingDialog; private set => m_adLoadingDialog = value; }
         public UnityEvent OnAdCompeleted { get => m_onAdCompeleted; set => m_onAdCompeleted = value; }
         public UnityEvent OnAdCanceled { get => m_onAdCanceled; set => m_onAdCanceled = value; }
         public UnityEvent OnAdAvailable { get => m_onAdAvailable; set => m_onAdAvailable = value; }
@@ -48,32 +42,13 @@ namespace EasyTapsell
                 Instance = this;
             else Destroy(gameObject);
 
-            // Deactivate Ad loading dialog.
-            HideAdLoadingDialog();
+            DontDestroyOnLoad(gameObject);
         }
         void Start()
         {
             // Initialize Tapsell.
             if (m_initializeAtStart)
                 InitializeTapsell();
-
-            // add fake dialog buttons to events
-            OnAdCompeleted.AddListener(() => TapsellAdFakeShow.Instance.Btn_OnAdCompeleted.gameObject.SetActive(true));
-            OnAdCanceled.AddListener(() => TapsellAdFakeShow.Instance.Btn_OnCanceled.gameObject.SetActive(true));
-            OnAdAvailable.AddListener(() => TapsellAdFakeShow.Instance.Btn_OnAdAvailable.gameObject.SetActive(true));
-            OnNoAdAvailable.AddListener(() => TapsellAdFakeShow.Instance.Btn_OnNoAdAvailable.gameObject.SetActive(true));
-            OnError.AddListener(() => TapsellAdFakeShow.Instance.Btn_OnError.gameObject.SetActive(true));
-            OnNoNetwork.AddListener(() => TapsellAdFakeShow.Instance.Btn_OnNoNetwork.gameObject.SetActive(true));
-            OnExpiring.AddListener(() => TapsellAdFakeShow.Instance.Btn_OnExpiring.gameObject.SetActive(true));
-
-            // add Hide dialog after request video.
-            OnAdCompeleted.AddListener(TapsellManager.Instance.HideAdLoadingDialog);
-            OnAdCanceled.AddListener(TapsellManager.Instance.HideAdLoadingDialog);
-            OnAdAvailable.AddListener(TapsellManager.Instance.HideAdLoadingDialog);
-            OnNoAdAvailable.AddListener(TapsellManager.Instance.HideAdLoadingDialog);
-            OnError.AddListener(TapsellManager.Instance.HideAdLoadingDialog);
-            OnNoNetwork.AddListener(TapsellManager.Instance.HideAdLoadingDialog);
-            OnExpiring.AddListener(TapsellManager.Instance.HideAdLoadingDialog);
         }
 
 
@@ -89,7 +64,5 @@ namespace EasyTapsell
             TapsellSDK.Tapsell.Initialize(tapsellkey);
             IsInitialized = true;
         }
-        public void ShowAdLoadingDialog() => AdLoadingDialog.gameObject.SetActive(true);
-        public void HideAdLoadingDialog() => AdLoadingDialog.gameObject.SetActive(false);
     }
 }
