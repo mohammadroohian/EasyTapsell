@@ -1562,35 +1562,5 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5350604604651473478, guid: 02a30fcaa84564f47b324d7784ce8e2e,
-        type: 3}
-      propertyPath: m_tapsellEvents
-      value: 58
-      objectReference: {fileID: 0}
-    - target: {fileID: 5350604604651473478, guid: 02a30fcaa84564f47b324d7784ce8e2e,
-        type: 3}
-      propertyPath: m_onAdCanceledIsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5350604604651473478, guid: 02a30fcaa84564f47b324d7784ce8e2e,
-        type: 3}
-      propertyPath: m_onAdAvailableIsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5350604604651473478, guid: 02a30fcaa84564f47b324d7784ce8e2e,
-        type: 3}
-      propertyPath: m_onNoAdAvailableIsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5350604604651473478, guid: 02a30fcaa84564f47b324d7784ce8e2e,
-        type: 3}
-      propertyPath: m_onErrorIsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5350604604651473478, guid: 02a30fcaa84564f47b324d7784ce8e2e,
-        type: 3}
-      propertyPath: m_onNoNetworkIsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 02a30fcaa84564f47b324d7784ce8e2e, type: 3}
