@@ -21,7 +21,6 @@ You can customize the default user interface or use your own.
 * [NaughtyAttributes](https://github.com/dbrizov/NaughtyAttributes)
 * [PashmakCore](https://github.com/mohammadroohian/PashmakCore)
 * [PAction](https://github.com/mohammadroohian/PAction)
-* [PMBox](https://github.com/mohammadroohian/PMBox)
 * [Tapsell](https://docs.tapsell.ir/plus-sdk/unity/initialize-android/)
 * TextMesh Pro 2.0.1
 * Post Processing 2.3.0
@@ -39,8 +38,7 @@ You can customize the default user interface or use your own.
 #### unitypackage file
 1. Install [NaughtyAttributes](https://github.com/dbrizov/NaughtyAttributes#installation).
 2. Install [PashmakCore](https://github.com/mohammadroohian/PashmakCore#installation).
-2. Install [PAction](https://github.com/mohammadroohian/PAction#installation).
-2. Install [PMBox](https://github.com/mohammadroohian/PMBox#installation).
-3. Install [Tapsell](https://docs.tapsell.ir/plus-sdk/unity/initialize-android/)
-4. Download `.unitypackage` file from [releases](https://github.com/mohammadroohian/EasyTapsell/releases).
-5. Import it into your project.
+3. Install [PAction](https://github.com/mohammadroohian/PAction#installation).
+4. Install [Tapsell](https://docs.tapsell.ir/plus-sdk/unity/initialize-android/)
+5. Download `.unitypackage` file from [releases](https://github.com/mohammadroohian/EasyTapsell/releases).
+6. Import it into your project.
