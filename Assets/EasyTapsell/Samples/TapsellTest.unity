@@ -178,190 +178,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 875d63425c6360b459b3d4d342918d10, type: 3}
---- !u!1 &144291748
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 144291749}
-  - component: {fileID: 144291750}
-  m_Layer: 5
-  m_Name: 'def RequestVideo():'
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &144291749
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 144291748}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 286090691}
-  m_Father: {fileID: 1585198264}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 714.3115, y: 234.25082}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &144291750
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 144291748}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 94ddf0be87470374cac73a3100b5293b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_enabledNode: 1
-  m_isBreakpoint: 0
-  m_comment: 
-  functionName: RequestVideo
-  executeIfActive: 1
-  runAtStart: 0
-  debugMode: 0
-  hideComments: 0
-  showCompleteNodedetails: 0
---- !u!1 &286090690
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 286090691}
-  - component: {fileID: 286090693}
-  - component: {fileID: 286090692}
-  - component: {fileID: 286090694}
-  m_Layer: 5
-  m_Name: '>  [ * ] . TapsellAdCaller . RequestAd()'
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &286090691
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 286090690}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 144291749}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &286090692
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 286090690}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64ed98f6700dcda4f9c0b481242c14a7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_adType: 0
-  m_zoneId: YOUR ZONE ID
-  m_showLoadingDialog: 1
-  m_autoAddRequestToButton: 0
-  m_autoShowAd: 1
---- !u!114 &286090693
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 286090690}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 90372b076debe1e488278c73f9545736, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_enabledNode: 1
-  m_isBreakpoint: 0
-  m_comment: 
-  m_onExecute:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 286090692}
-        m_MethodName: RequestAd
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &286090694
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 286090690}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7887bf885efe80043aa738e1794cb5ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_isActive: 1
-  m_tapsellEvents: 0
-  m_onAdCompeletedIsActive: 0
-  m_onAdCompeleted:
-    m_PersistentCalls:
-      m_Calls: []
-  m_onAdCanceledIsActive: 0
-  m_onAdCanceled:
-    m_PersistentCalls:
-      m_Calls: []
-  m_onAdAvailableIsActive: 0
-  m_onAdAvailable:
-    m_PersistentCalls:
-      m_Calls: []
-  m_onNoAdAvailableIsActive: 0
-  m_onNoAdAvailable:
-    m_PersistentCalls:
-      m_Calls: []
-  m_onErrorIsActive: 0
-  m_onError:
-    m_PersistentCalls:
-      m_Calls: []
-  m_onNoNetworkIsActive: 0
-  m_onNoNetwork:
-    m_PersistentCalls:
-      m_Calls: []
-  m_onExpiringIsActive: 0
-  m_onExpiring:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &796387004
 GameObject:
   m_ObjectHideFlags: 0
@@ -617,6 +433,7 @@ GameObject:
   - component: {fileID: 881414418}
   - component: {fileID: 881414417}
   - component: {fileID: 881414416}
+  - component: {fileID: 881414415}
   m_Layer: 5
   m_Name: Button_requestAd
   m_TagString: Untagged
@@ -647,6 +464,23 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &881414415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 881414413}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64ed98f6700dcda4f9c0b481242c14a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_adType: 0
+  m_zoneId: YOUR ZONE ID
+  m_showLoadingDialog: 1
+  m_autoAddRequestToButton: 0
+  m_autoShowAd: 1
 --- !u!114 &881414416
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -691,8 +525,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 144291750}
-        m_MethodName: Call
+      - m_Target: {fileID: 881414415}
+        m_MethodName: RequestAd
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1000,8 +834,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 144291749}
+  m_Children: []
   m_Father: {fileID: 1534144283}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
