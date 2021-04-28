@@ -333,27 +333,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_isActive: 1
-  m_onAdCompeletedIsActive: 0
+  m_tapsellEvents: 0
   m_onAdCompeleted:
     m_PersistentCalls:
       m_Calls: []
-  m_onAdCanceledIsActive: 0
   m_onAdCanceled:
     m_PersistentCalls:
       m_Calls: []
-  m_onAdAvailableIsActive: 0
   m_onAdAvailable:
     m_PersistentCalls:
       m_Calls: []
-  m_onNoAdAvailableIsActive: 0
   m_onNoAdAvailable:
     m_PersistentCalls:
       m_Calls: []
-  m_onErrorIsActive: 0
   m_onError:
     m_PersistentCalls:
       m_Calls: []
-  m_onNoNetworkIsActive: 0
   m_onNoNetwork:
     m_PersistentCalls:
       m_Calls: []

@@ -7,40 +7,52 @@ namespace EasyTapsell
 {
     public class TapsellEventTrigger : MonoBehaviour
     {
+        public enum TapsellEventType
+        {
+            None = 0,
+            OnAdCompeleted = 1 << 0, // 1
+            OnAdCanceled = 1 << 1, // 2
+            OnAdAvailable = 1 << 2, // 4
+            OnNoAdAvailable = 1 << 3, // 8
+            OnError = 1 << 4, // 16
+            OnNoNetwork = 1 << 5, // 32
+            OnExpiring = 1 << 6, // 64
+            All = ~0
+        }
+
+
         // variable____________________________________________________________________
         [SerializeField] private bool m_isActive = true;
 
-        [Label("OnAdCompeleted")]
-        [SerializeField] private bool m_onAdCompeletedIsActive = false;
+        [EnumFlags]
+        [OnValueChanged("OnValueChangedMethod_TapsellEvents")]
+        [SerializeField] private TapsellEventType m_tapsellEvents = TapsellEventType.None;
+
+        private bool m_onAdCompeletedIsActive = false;
         [ShowIf("m_onAdCompeletedIsActive")]
         [SerializeField] private UnityEvent m_onAdCompeleted = new UnityEvent();
 
-        [Label("OnAdCanceled")]
-        [SerializeField] private bool m_onAdCanceledIsActive = false;
+        private bool m_onAdCanceledIsActive = false;
         [ShowIf("m_onAdCanceledIsActive")]
         [SerializeField] private UnityEvent m_onAdCanceled = new UnityEvent();
 
-        [Label("OnAdAvailable")]
-        [SerializeField] private bool m_onAdAvailableIsActive = false;
+        private bool m_onAdAvailableIsActive = false;
         [ShowIf("m_onAdAvailableIsActive")]
         [SerializeField] private UnityEvent m_onAdAvailable = new UnityEvent();
 
-        [Label("OnNoAdAvailable")]
-        [SerializeField] private bool m_onNoAdAvailableIsActive = false;
+        private bool m_onNoAdAvailableIsActive = false;
         [ShowIf("m_onNoAdAvailableIsActive")]
         [SerializeField] private UnityEvent m_onNoAdAvailable = new UnityEvent();
 
-        [Label("OnError")]
-        [SerializeField] private bool m_onErrorIsActive = false;
+        private bool m_onErrorIsActive = false;
         [ShowIf("m_onErrorIsActive")]
         [SerializeField] private UnityEvent m_onError = new UnityEvent();
 
-        [Label("OnNoNetwork")]
-        [SerializeField] private bool m_onNoNetworkIsActive = false;
+        private bool m_onNoNetworkIsActive = false;
         [ShowIf("m_onNoNetworkIsActive")]
         [SerializeField] private UnityEvent m_onNoNetwork = new UnityEvent();
 
-        [Label("OnExpiring")]
+        [HideInInspector]
         [SerializeField] private bool m_onExpiringIsActive = false;
         [ShowIf("m_onExpiringIsActive")]
         [SerializeField] private UnityEvent m_onExpiring = new UnityEvent();
@@ -55,13 +67,6 @@ namespace EasyTapsell
         public UnityEvent OnError { get => m_onError; private set => m_onError = value; }
         public UnityEvent OnNoNetwork { get => m_onNoNetwork; private set => m_onNoNetwork = value; }
         public UnityEvent OnExpiring { get => m_onExpiring; private set => m_onExpiring = value; }
-        public bool OnAdCompeletedIsActive { get => m_onAdCompeletedIsActive; set => m_onAdCompeletedIsActive = value; }
-        public bool OnAdCanceledIsActive { get => m_onAdCanceledIsActive; set => m_onAdCanceledIsActive = value; }
-        public bool OnAdAvailableIsActive { get => m_onAdAvailableIsActive; set => m_onAdAvailableIsActive = value; }
-        public bool OnNoAdAvailableIsActive { get => m_onNoAdAvailableIsActive; set => m_onNoAdAvailableIsActive = value; }
-        public bool OnErrorIsActive { get => m_onErrorIsActive; set => m_onErrorIsActive = value; }
-        public bool OnNoNetworkIsActive { get => m_onNoNetworkIsActive; set => m_onNoNetworkIsActive = value; }
-        public bool OnExpiringIsActive { get => m_onExpiringIsActive; set => m_onExpiringIsActive = value; }
 
 
         // monoBehaviour___________________________________________________________
@@ -70,39 +75,52 @@ namespace EasyTapsell
             // add this trigger event to manager
             TapsellManager.Instance.OnAdCompeleted.AddListener(() =>
             {
-                if (IsActive && OnAdCompeletedIsActive)
+                if (IsActive && m_onAdCompeletedIsActive)
                     OnAdCompeleted.Invoke();
             });
             TapsellManager.Instance.OnAdCanceled.AddListener(() =>
             {
-                if (IsActive && OnAdCanceledIsActive)
+                if (IsActive && m_onAdCanceledIsActive)
                     OnAdCanceled.Invoke();
             });
             TapsellManager.Instance.OnAdAvailable.AddListener(() =>
             {
-                if (IsActive && OnAdAvailableIsActive)
+                if (IsActive && m_onAdAvailableIsActive)
                     OnAdAvailable.Invoke();
             });
             TapsellManager.Instance.OnNoAdAvailable.AddListener(() =>
             {
-                if (IsActive && OnNoAdAvailableIsActive)
+                if (IsActive && m_onNoAdAvailableIsActive)
                     OnNoAdAvailable.Invoke();
             });
             TapsellManager.Instance.OnError.AddListener(() =>
             {
-                if (IsActive && OnErrorIsActive)
+                if (IsActive && m_onErrorIsActive)
                     OnError.Invoke();
             });
             TapsellManager.Instance.OnNoNetwork.AddListener(() =>
             {
-                if (IsActive && OnNoNetworkIsActive)
+                if (IsActive && m_onNoNetworkIsActive)
                     OnNoNetwork.Invoke();
             });
             TapsellManager.Instance.OnExpiring.AddListener(() =>
             {
-                if (IsActive && OnExpiringIsActive)
+                if (IsActive && m_onExpiringIsActive)
                     OnExpiring.Invoke();
             });
         }
+
+
+        private void OnValueChangedMethod_TapsellEvents()
+        {
+            m_onAdCompeletedIsActive = ((int)m_tapsellEvents & 1) != 0;
+            m_onAdCanceledIsActive = ((int)m_tapsellEvents & 2) != 0;
+            m_onAdAvailableIsActive = ((int)m_tapsellEvents & 4) != 0;
+            m_onNoAdAvailableIsActive = ((int)m_tapsellEvents & 8) != 0;
+            m_onErrorIsActive = ((int)m_tapsellEvents & 16) != 0;
+            m_onNoNetworkIsActive = ((int)m_tapsellEvents & 32) != 0;
+            m_onExpiringIsActive = ((int)m_tapsellEvents & 64) != 0;
+        }
     }
+
 }

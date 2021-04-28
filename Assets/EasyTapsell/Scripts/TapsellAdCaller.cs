@@ -48,6 +48,7 @@ namespace EasyTapsell
                 TapsellManager.Instance.OnAdAvailable.AddListener(ShowAd);
         }
 
+
         // function________________________________________________________________
         private void RequestAd(string zone, bool cached)
         {
