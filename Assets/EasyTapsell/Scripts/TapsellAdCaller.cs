@@ -19,7 +19,6 @@ namespace EasyTapsell
         private TapsellAd m_ad = null;
         private bool m_available = false;
         [SerializeField] private string m_zoneId = "YOUR ZONE ID";
-        [SerializeField] private TapsellEventTrigger m_tplEventTrigger = null;
         [SerializeField] bool m_showLoadingDialog = false;
         [SerializeField] private bool m_autoAddRequestToButton = false;
         [SerializeField] bool m_autoShowAd = true;// If be true the ad will be shown after request automaticly.
@@ -30,7 +29,6 @@ namespace EasyTapsell
         public TapsellAd Ad { get => m_ad; set => m_ad = value; }
         public bool Available { get => m_available; set => m_available = value; }
         public string ZoneId { get => m_zoneId; set => m_zoneId = value; }
-        public TapsellEventTrigger TplEventTrigger { get => m_tplEventTrigger; private set => m_tplEventTrigger = value; }
         public bool ShowLoadingDialog { get => m_showLoadingDialog; set => m_showLoadingDialog = value; }
         public bool AutoAddRequestToButton { get => m_autoAddRequestToButton; private set => m_autoAddRequestToButton = value; }
         public bool AutoShowAd { get => m_autoShowAd; private set => m_autoShowAd = value; }
@@ -41,19 +39,14 @@ namespace EasyTapsell
         {
             // Add request video ad for help automatically.
             if (AutoAddRequestToButton)
-            {
                 GetComponent<Button>().onClick.AddListener(RequestAd);
-            }
-
-            // check TplEventTrigger not null
-            if (TplEventTrigger == null)
-                TplEventTrigger = GetComponent<TapsellEventTrigger>();
-
+        }
+        private void Start()
+        {
             // Check show ad automatically or not after when video is availble.
             if (AutoShowAd)
-                TplEventTrigger.OnAdAvailable.AddListener(ShowAd);
+                TapsellManager.Instance.OnAdAvailable.AddListener(ShowAd);
         }
-
 
         // function________________________________________________________________
         private void RequestAd(string zone, bool cached)
