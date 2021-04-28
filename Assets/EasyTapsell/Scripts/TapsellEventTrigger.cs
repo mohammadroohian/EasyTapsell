@@ -28,27 +28,33 @@ namespace EasyTapsell
         [OnValueChanged("OnValueChangedMethod_TapsellEvents")]
         [SerializeField] private TapsellEventType m_tapsellEvents = TapsellEventType.None;
 
-        private bool m_onAdCompeletedIsActive = false;
+        [HideInInspector]
+        [SerializeField] private bool m_onAdCompeletedIsActive = false;
         [ShowIf("m_onAdCompeletedIsActive")]
         [SerializeField] private UnityEvent m_onAdCompeleted = new UnityEvent();
 
-        private bool m_onAdCanceledIsActive = false;
+        [HideInInspector]
+        [SerializeField] private bool m_onAdCanceledIsActive = false;
         [ShowIf("m_onAdCanceledIsActive")]
         [SerializeField] private UnityEvent m_onAdCanceled = new UnityEvent();
 
-        private bool m_onAdAvailableIsActive = false;
+        [HideInInspector]
+        [SerializeField] private bool m_onAdAvailableIsActive = false;
         [ShowIf("m_onAdAvailableIsActive")]
         [SerializeField] private UnityEvent m_onAdAvailable = new UnityEvent();
 
-        private bool m_onNoAdAvailableIsActive = false;
+        [HideInInspector]
+        [SerializeField] private bool m_onNoAdAvailableIsActive = false;
         [ShowIf("m_onNoAdAvailableIsActive")]
         [SerializeField] private UnityEvent m_onNoAdAvailable = new UnityEvent();
 
-        private bool m_onErrorIsActive = false;
+        [HideInInspector]
+        [SerializeField] private bool m_onErrorIsActive = false;
         [ShowIf("m_onErrorIsActive")]
         [SerializeField] private UnityEvent m_onError = new UnityEvent();
 
-        private bool m_onNoNetworkIsActive = false;
+        [HideInInspector]
+        [SerializeField] private bool m_onNoNetworkIsActive = false;
         [ShowIf("m_onNoNetworkIsActive")]
         [SerializeField] private UnityEvent m_onNoNetwork = new UnityEvent();
 
