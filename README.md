@@ -42,3 +42,20 @@ You can customize the default user interface or use your own.
 4. Install [Tapsell](https://docs.tapsell.ir/plus-sdk/unity/initialize-android/)
 5. Download `.unitypackage` file from [releases](https://github.com/mohammadroohian/EasyTapsell/releases).
 6. Import it into your project.
+
+## Overview
+To learn more about how these components work, check out the sample scenes.
+The following are a number of practical cases.
+
+![showcase](https://user-images.githubusercontent.com/80090999/116399234-f281db00-a83d-11eb-905d-2edc51e11f23.gif)
+
+### Events
+* OnAdCompeleted
+* OnAdCanceled
+* OnAdAvailable
+* OnNoAdAvailable
+* OnError
+* OnNoNetwork
+* OnExpiring
+
+
