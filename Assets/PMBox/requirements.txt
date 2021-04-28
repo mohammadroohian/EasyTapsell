@@ -1,4 +1,0 @@
-"com.unity.textmeshpro": "2.0.1"
-"com.unity.postprocessing": "2.3.0"
-NaughtyAttributes
-PashmakCore
