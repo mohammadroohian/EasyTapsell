@@ -9,13 +9,13 @@ namespace EasyTapsell
         // variable____________________________________________________________________
         [SerializeField] private bool m_initializeAtStart = true;
         [SerializeField] private string m_tapsellKey = "YOUR TAPSELL KEY";
-        [SerializeField] private UnityEvent m_onAdCompeleted = new UnityEvent();
-        [SerializeField] private UnityEvent m_onAdCanceled = new UnityEvent();
-        [SerializeField] private UnityEvent m_onAdAvailable = new UnityEvent();
-        [SerializeField] private UnityEvent m_onNoAdAvailable = new UnityEvent();
-        [SerializeField] private UnityEvent m_onError = new UnityEvent();
-        [SerializeField] private UnityEvent m_onNoNetwork = new UnityEvent();
-        [SerializeField] private UnityEvent m_onExpiring = new UnityEvent();
+        private UnityEvent m_onAdCompeleted = new UnityEvent();
+        private UnityEvent m_onAdCanceled = new UnityEvent();
+        private UnityEvent m_onAdAvailable = new UnityEvent();
+        private UnityEvent m_onNoAdAvailable = new UnityEvent();
+        private UnityEvent m_onError = new UnityEvent();
+        private UnityEvent m_onNoNetwork = new UnityEvent();
+        private UnityEvent m_onExpiring = new UnityEvent();
 
 
         // Property________________________________________________
