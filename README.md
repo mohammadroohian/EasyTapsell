@@ -59,7 +59,7 @@ The following are a number of practical cases.
 * OnExpiring
 
 ## How to use
-1. Drag and drop `Tapsell Manager` to scene from prefabs folder (set your tapsell key into `Tapsell Key` filed).
+1. Drag and drop `Tapsell Manager` to scene from prefabs folder (set [your tapsell key](https://dashboard.tapsell.ir/) into `Tapsell Key` filed).
 3. Drag and drop `Tapsell ManagerUI` to scene from prefabs folder.
 4. Drag and drop `Tapsell FakeAd Video` to scene from prefabs folder.
 5. Customize `Tapsell ManagerUI` itmes if needed (texts and images displayed in messages).
@@ -70,7 +70,7 @@ The following are a number of practical cases.
 
 ![trigger](https://user-images.githubusercontent.com/80090999/116892628-3feab780-ac45-11eb-81a2-c0cf405a2f0d.gif)
 
-7. Use `TapsellAdCaller` component to request an ad (set your zone id into `Zone ID` filed).
+7. Use `TapsellAdCaller` component to request an ad (set [your zone id](https://dashboard.tapsell.ir/) into `Zone ID` filed).
 
 ![USE](https://user-images.githubusercontent.com/80090999/116403125-70e07c00-a842-11eb-9bd6-8e0a141c098c.gif)
 
