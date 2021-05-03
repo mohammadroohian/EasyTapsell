@@ -130,7 +130,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1562862950066642, guid: 875d63425c6360b459b3d4d342918d10, type: 3}
       propertyPath: m_Name
-      value: Tapsell Manager
+      value: Easy Tapsell Manager
       objectReference: {fileID: 0}
     - target: {fileID: 4224795418432870, guid: 875d63425c6360b459b3d4d342918d10, type: 3}
       propertyPath: m_LocalPosition.x
@@ -435,7 +435,7 @@ GameObject:
   - component: {fileID: 881414416}
   - component: {fileID: 881414415}
   m_Layer: 5
-  m_Name: Button_requestAd
+  m_Name: Button_requestVideoAd
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -473,7 +473,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 881414413}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64ed98f6700dcda4f9c0b481242c14a7, type: 3}
+  m_Script: {fileID: 11500000, guid: ff82a375af92038458f0cb9238b5d11f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_adType: 0
@@ -1170,7 +1170,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1879020024310406, guid: 7423623e731ce7b4f88888ebe91f5b80, type: 3}
       propertyPath: m_Name
-      value: Tapsell FakeAd Video
+      value: Easy Tapsell FakeAd Video
       objectReference: {fileID: 0}
     - target: {fileID: 4833112964468218, guid: 7423623e731ce7b4f88888ebe91f5b80, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1349,7 +1349,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1562862950066642, guid: 02a30fcaa84564f47b324d7784ce8e2e, type: 3}
       propertyPath: m_Name
-      value: Tapsell ManagerUI
+      value: Easy Tapsell Manager UI
       objectReference: {fileID: 0}
     - target: {fileID: 4224795418432870, guid: 02a30fcaa84564f47b324d7784ce8e2e, type: 3}
       propertyPath: m_LocalPosition.x

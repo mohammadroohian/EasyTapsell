@@ -41,7 +41,7 @@ namespace EasyTapsell
 
         // function________________________________________________________________
 #if UNITY_ANDROID && UNITY_EDITOR
-        public static void ShowFakeVideoAdd(TapsellAdCaller caller)
+        public static void ShowFakeVideoAdd(TapsellVideoAdCaller caller)
         {
             // Show fake ad dialog.
             Instance.ShowFakeVideoAddDialog();
@@ -94,7 +94,7 @@ namespace EasyTapsell
         }
         private void ShowFakeVideoAddDialog() => this.transform.GetChild(0).gameObject.SetActive(true);
         private void CloseFakeVideoAddDialog() => this.transform.GetChild(0).gameObject.SetActive(false);
-        private void OnAdCompeleted_Click(TapsellAdCaller caller)
+        private void OnAdCompeleted_Click(TapsellVideoAdCaller caller)
         {
             // Invoke TapsellManager events.
             TapsellManager.Instance.OnAdCompeleted.Invoke();
@@ -102,7 +102,7 @@ namespace EasyTapsell
             // Close fake add dialog.
             CloseFakeVideoAddDialog();
         }
-        private void OnCancel_Click(TapsellAdCaller caller)
+        private void OnCancel_Click(TapsellVideoAdCaller caller)
         {
             // Invoke TapsellManager events.
             TapsellManager.Instance.OnAdCanceled.Invoke();
@@ -110,7 +110,7 @@ namespace EasyTapsell
             // Close fake ad dialog.
             CloseFakeVideoAddDialog();
         }
-        private void OnAdAvailable_Click(TapsellAdCaller caller)
+        private void OnAdAvailable_Click(TapsellVideoAdCaller caller)
         {
             // Invoke TapsellManager events.
             TapsellManager.Instance.OnAdAvailable.Invoke();
@@ -118,7 +118,7 @@ namespace EasyTapsell
             // Close fake ad dialog.
             CloseFakeVideoAddDialog();
         }
-        private void OnNoAdAvailable_Click(TapsellAdCaller caller)
+        private void OnNoAdAvailable_Click(TapsellVideoAdCaller caller)
         {
             // Invoke TapsellManager events.
             TapsellManager.Instance.OnNoAdAvailable.Invoke();
@@ -126,7 +126,7 @@ namespace EasyTapsell
             // Close fake ad dialog.
             CloseFakeVideoAddDialog();
         }
-        private void OnError_Click(TapsellAdCaller caller)
+        private void OnError_Click(TapsellVideoAdCaller caller)
         {
             // Invoke TapsellManager events.
             TapsellManager.Instance.OnError.Invoke();
@@ -134,7 +134,7 @@ namespace EasyTapsell
             // Close fake ad dialog.
             CloseFakeVideoAddDialog();
         }
-        private void OnNoNetwork_Click(TapsellAdCaller caller)
+        private void OnNoNetwork_Click(TapsellVideoAdCaller caller)
         {
             // Invoke TapsellManager events.
             TapsellManager.Instance.OnNoNetwork.Invoke();
@@ -142,7 +142,7 @@ namespace EasyTapsell
             // Close fake ad dialog.
             CloseFakeVideoAddDialog();
         }
-        private void OnExpiring_Click(TapsellAdCaller caller)
+        private void OnExpiring_Click(TapsellVideoAdCaller caller)
         {
             // Invoke TapsellManager events.
             TapsellManager.Instance.OnExpiring.Invoke();

@@ -4,28 +4,27 @@ using UnityEngine.UI;
 
 namespace EasyTapsell
 {
-    public class TapsellAdCaller : MonoBehaviour
+    public class TapsellVideoAdCaller : MonoBehaviour
     {
-        public enum TapsellAdType
+        public enum TapsellVideoAdType
         {
-            Video_Interstitial = 0,
-            Video_Rewarded = 1,
-            Banner_Interstitial = 2
+            Interstitial = 0,
+            Rewarded = 1
         }
 
 
         // variable____________________________________________________________________
-        [SerializeField] private TapsellAdType m_adType = TapsellAdType.Video_Interstitial;
+        [SerializeField] private TapsellVideoAdType m_adType = TapsellVideoAdType.Interstitial;
         private TapsellAd m_ad = null;
         private bool m_available = false;
         [SerializeField] private string m_zoneId = "YOUR ZONE ID";
-        [SerializeField] bool m_showLoadingDialog = false;
+        [SerializeField] bool m_showLoadingDialog = true;
         [SerializeField] private bool m_autoAddRequestToButton = false;
         [SerializeField] bool m_autoShowAd = true;// If be true the ad will be shown after request automaticly.
 
 
         // property________________________________________________________________
-        public TapsellAdType AdType { get => m_adType; private set => m_adType = value; }
+        public TapsellVideoAdType AdType { get => m_adType; private set => m_adType = value; }
         public TapsellAd Ad { get => m_ad; set => m_ad = value; }
         public bool Available { get => m_available; set => m_available = value; }
         public string ZoneId { get => m_zoneId; set => m_zoneId = value; }
@@ -52,7 +51,7 @@ namespace EasyTapsell
         // function________________________________________________________________
         private void RequestAd(string zone, bool cached)
         {
-            TapsellSDK.Tapsell.RequestAd(zone, cached,
+            Tapsell.RequestAd(zone, cached,
                 (TapsellAd result) =>
                 {
                     // onAdAvailable
@@ -152,7 +151,7 @@ namespace EasyTapsell
         private void Tapsell_OnGetReward(TapsellAdFinishedResult result)
         {
             // You can validate suggestion from you server by sending a request from your game server to tapsell, passing adId to validate it
-            if ((result.completed && result.rewarded) || AdType == TapsellAdType.Banner_Interstitial || AdType == TapsellAdType.Video_Interstitial)
+            if ((result.completed && result.rewarded) || AdType == TapsellVideoAdType.Interstitial)
             {
                 // Invoke TapsellManager events.
                 TapsellManager.Instance.OnAdCompeleted.Invoke();

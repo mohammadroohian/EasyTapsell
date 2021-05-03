@@ -58,7 +58,7 @@ namespace EasyTapsell
 
         // function________________________________________________________________
         public void InitializeTapsell() => InitializeTapsell(TapsellKey);
-        public void InitializeTapsell(string tapsellkey)
+        private void InitializeTapsell(string tapsellkey)
         {
             // Check Tapsell is initialized or not.
             if (IsInitialized)
