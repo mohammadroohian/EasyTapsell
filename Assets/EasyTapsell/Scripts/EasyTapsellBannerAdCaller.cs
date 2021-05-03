@@ -4,27 +4,47 @@ using UnityEngine.UI;
 
 namespace EasyTapsell
 {
-    public class EasyTapsellVideoAdCaller : MonoBehaviour
+    public class EasyTapsellBannerAdCaller : MonoBehaviour
     {
-        public enum TapsellVideoAdType
+        public enum TapsellBannerAdType
         {
-            Interstitial = 0,
-            Rewarded = 1
+            Standard = 0,
+            //Native = 1
+        }
+
+        public enum TapsellBannerGravity
+        {
+            Top = 1,
+            Bottom = 2,
+            Left = 3,
+            Right = 4,
+            Center = 5
+        }
+
+        public enum TapsellBannerType
+        {
+            BANNER_320x50 = 1,
+            BANNER_320x100 = 2,
+            BANNER_250x250 = 3,
+            BANNER_300x250 = 4
         }
 
 
         // variable____________________________________________________________________
-        [SerializeField] private TapsellVideoAdType m_adType = TapsellVideoAdType.Interstitial;
+        [SerializeField] private TapsellBannerAdType m_adType = TapsellBannerAdType.Standard;
         private TapsellAd m_ad = null;
         private bool m_available = false;
         [SerializeField] private string m_zoneId = "YOUR ZONE ID";
         [SerializeField] private bool m_showLoadingDialog = true;
         [SerializeField] private bool m_autoAddRequestToButton = false;
         [SerializeField] private bool m_autoShowAd = true;// If be true the ad will be shown after request automaticly.
+        [SerializeField] private TapsellBannerType m_bannerSize = TapsellBannerType.BANNER_250x250;
+        [SerializeField] private TapsellBannerGravity m_horizontalGravity = TapsellBannerGravity.Bottom;
+        [SerializeField] private TapsellBannerGravity m_verticalGravity = TapsellBannerGravity.Center;
 
 
         // property________________________________________________________________
-        public TapsellVideoAdType AdType { get => m_adType; private set => m_adType = value; }
+        public TapsellBannerAdType AdType { get => m_adType; private set => m_adType = value; }
         public TapsellAd Ad { get => m_ad; private set => m_ad = value; }
         public bool Available { get => m_available; set => m_available = value; }
         public string ZoneId { get => m_zoneId; set => m_zoneId = value; }
@@ -49,15 +69,14 @@ namespace EasyTapsell
 
 
         // function________________________________________________________________
-        private void RequestAd(string zone, bool cached)
+        private void RequestAd(string zone)
         {
-            Tapsell.RequestAd(zone, cached,
-                (TapsellAd result) =>
+            Tapsell.RequestBannerAd(zone, (int)m_bannerSize, (int)m_horizontalGravity, (int)m_verticalGravity,
+                (string zoneId) =>
                 {
                     // onAdAvailable
                     Debug.Log("On Ad Available");
                     this.Available = true;
-                    this.Ad = result;
 
                     // Invoke TapsellManager events.
                     EasyTapsellManager.Instance.OnVideoAdAvailable.Invoke();
@@ -90,34 +109,9 @@ namespace EasyTapsell
                     EasyTapsellManager.Instance.OnVideoNoNetwork.Invoke();
                 },
 
-                (TapsellAd result) =>
+                (string zoneId) =>
                 {
-                    //onExpiring
-                    Debug.Log("Expiring");
-                    this.Available = false;
-                    this.Ad = null;
-
-                    // Invoke TapsellManager events.
-                    EasyTapsellManager.Instance.OnVideoExpiring.Invoke();
-                    RequestAd(result.zoneId, false);
-                },
-
-                (TapsellAd result) =>
-                {
-                    // onOpen
-                    Debug.Log("open");
-
-                    // Invoke TapsellManager events.
-                    EasyTapsellManager.Instance.OnVideoOpen.Invoke();
-                },
-
-                (TapsellAd result) =>
-                {
-                    // onClose
-                    Debug.Log("close");
-
-                    // Invoke TapsellManager events.
-                    EasyTapsellManager.Instance.OnVideoClose.Invoke();
+                    Debug.Log("Hide Banner");
                 }
             );
         }
@@ -126,17 +120,14 @@ namespace EasyTapsell
             if (ShowLoadingDialog)
                 EasyTapsellManagerUI.Instance.ShowAdLoadingDialog();
 #if UNITY_ANDROID && !UNITY_EDITOR
-            // Set reward function.
-            Tapsell.SetRewardListener(Tapsell_OnGetReward);
-
             // Get ad from tapsell.
-            RequestAd(m_zoneId, false);
+            RequestAd(m_zoneId);
 #elif UNITY_ANDROID && UNITY_EDITOR
             // Invoke OnAdAvailable events.
             if (AutoShowAd)
             {
                 // Invoke TapsellManager events.
-                EasyTapsellManager.Instance.OnVideoAdAvailable.Invoke();
+                EasyTapsellManager.Instance.OnBannerAdAvailable.Invoke();
             }
 #elif !UNITY_ANDROID
             Debug.LogError("TapsellVideoCaller just work on android");
@@ -148,37 +139,15 @@ namespace EasyTapsell
             if (!m_available)
                 return;
 
-            // Set options to show ad.
-            TapsellShowOptions options = new TapsellShowOptions();
-            options.backDisabled = false;
-            options.immersiveMode = false;
-            options.rotationMode = TapsellShowOptions.ROTATION_LOCKED_LANDSCAPE;
-            if (AdType == TapsellAdType.Video_Rewarded)
-                options.showDialog = true;
-            else
-                options.showDialog = false;
-            // Show ad.
-            Tapsell.ShowAd(m_ad, options);
+            Tapsell.ShowBannerAd(ZoneId);
 #elif UNITY_ANDROID && UNITY_EDITOR
-            EasyTapsellAdFakeShow.ShowFakeVideoAdd(this);
+            // show test panel in editor 
+            //EasyTapsellAdFakeShow.ShowFakeVideoAdd(this);
             return;
 #elif !UNITY_ANDROID
             Debug.LogError("TapsellVideoCaller just work on android");
 #endif
         }
-        private void Tapsell_OnGetReward(TapsellAdFinishedResult result)
-        {
-            // You can validate suggestion from you server by sending a request from your game server to tapsell, passing adId to validate it
-            if ((result.completed && result.rewarded) || AdType == TapsellVideoAdType.Interstitial)
-            {
-                // Invoke TapsellManager events.
-                EasyTapsellManager.Instance.OnVideoAdCompeleted.Invoke();
-            }
-            else
-            {
-                // Invoke TapsellManager events.
-                EasyTapsellManager.Instance.OnVideoAdCanceled.Invoke();
-            }
-        }
+        public void Hide() => Tapsell.HideBannerAd(ZoneId);
     }
 }

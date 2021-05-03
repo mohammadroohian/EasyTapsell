@@ -5,9 +5,9 @@ using UnityEngine.Events;
 
 namespace EasyTapsell
 {
-    public class EasyTapsellEventTrigger : MonoBehaviour
+    public class EasyTapsellVideoEventTrigger : MonoBehaviour
     {
-        public enum TapsellEventType
+        public enum TapsellVideoEventType
         {
             None = 0,
             AdCompeleted = 1 << 0, // 1
@@ -17,6 +17,8 @@ namespace EasyTapsell
             Error = 1 << 4, // 16
             NoNetwork = 1 << 5, // 32
             Expiring = 1 << 6, // 64
+            Open = 1 << 7, // 128
+            Close = 1 << 8, // 256
             All = ~0
         }
 
@@ -26,7 +28,7 @@ namespace EasyTapsell
 
         [EnumFlags]
         [OnValueChanged("OnValueChangedMethod_TapsellEvents")]
-        [SerializeField] private TapsellEventType m_tapsellEvents = TapsellEventType.None;
+        [SerializeField] private TapsellVideoEventType m_tapsellEvents = TapsellVideoEventType.None;
 
         [HideInInspector]
         [SerializeField] private bool m_onAdCompeletedIsActive = false;
@@ -63,6 +65,16 @@ namespace EasyTapsell
         [ShowIf("m_onExpiringIsActive")]
         [SerializeField] private UnityEvent m_onExpiring = new UnityEvent();
 
+        [HideInInspector]
+        [SerializeField] private bool m_onOpenIsActive = false;
+        [ShowIf("m_onOpenIsActive")]
+        [SerializeField] private UnityEvent m_onOpen = new UnityEvent();
+
+        [HideInInspector]
+        [SerializeField] private bool m_onCloseIsActive = false;
+        [ShowIf("m_onCloseIsActive")]
+        [SerializeField] private UnityEvent m_onClose = new UnityEvent();
+
 
         // property________________________________________________________________
         public bool IsActive { get => m_isActive; set => m_isActive = value; }
@@ -73,50 +85,63 @@ namespace EasyTapsell
         public UnityEvent OnError { get => m_onError; private set => m_onError = value; }
         public UnityEvent OnNoNetwork { get => m_onNoNetwork; private set => m_onNoNetwork = value; }
         public UnityEvent OnExpiring { get => m_onExpiring; private set => m_onExpiring = value; }
+        public UnityEvent OnOpen { get => m_onOpen; private set => m_onOpen = value; }
+        public UnityEvent OnClose { get => m_onClose; private set => m_onClose = value; }
 
 
         // monoBehaviour___________________________________________________________
         void Start()
         {
             // add this trigger event to manager
-            EasyTapsellManager.Instance.OnAdCompeleted.AddListener(() =>
+            EasyTapsellManager.Instance.OnVideoAdCompeleted.AddListener(() =>
             {
                 if (IsActive && m_onAdCompeletedIsActive)
                     OnAdCompeleted.Invoke();
             });
-            EasyTapsellManager.Instance.OnAdCanceled.AddListener(() =>
+            EasyTapsellManager.Instance.OnVideoAdCanceled.AddListener(() =>
             {
                 if (IsActive && m_onAdCanceledIsActive)
                     OnAdCanceled.Invoke();
             });
-            EasyTapsellManager.Instance.OnAdAvailable.AddListener(() =>
+            EasyTapsellManager.Instance.OnVideoAdAvailable.AddListener(() =>
             {
                 if (IsActive && m_onAdAvailableIsActive)
                     OnAdAvailable.Invoke();
             });
-            EasyTapsellManager.Instance.OnNoAdAvailable.AddListener(() =>
+            EasyTapsellManager.Instance.OnNoVideoAdAvailable.AddListener(() =>
             {
                 if (IsActive && m_onNoAdAvailableIsActive)
                     OnNoAdAvailable.Invoke();
             });
-            EasyTapsellManager.Instance.OnError.AddListener(() =>
+            EasyTapsellManager.Instance.OnVideoError.AddListener(() =>
             {
                 if (IsActive && m_onErrorIsActive)
                     OnError.Invoke();
             });
-            EasyTapsellManager.Instance.OnNoNetwork.AddListener(() =>
+            EasyTapsellManager.Instance.OnVideoNoNetwork.AddListener(() =>
             {
                 if (IsActive && m_onNoNetworkIsActive)
                     OnNoNetwork.Invoke();
             });
-            EasyTapsellManager.Instance.OnExpiring.AddListener(() =>
+            EasyTapsellManager.Instance.OnVideoExpiring.AddListener(() =>
             {
                 if (IsActive && m_onExpiringIsActive)
                     OnExpiring.Invoke();
             });
+            EasyTapsellManager.Instance.OnVideoOpen.AddListener(() =>
+            {
+                if (IsActive && m_onOpenIsActive)
+                    OnOpen.Invoke();
+            });
+            EasyTapsellManager.Instance.OnVideoClose.AddListener(() =>
+            {
+                if (IsActive && m_onCloseIsActive)
+                    OnClose.Invoke();
+            });
         }
 
 
+        // function________________________________________________________________
         private void OnValueChangedMethod_TapsellEvents()
         {
             m_onAdCompeletedIsActive = ((int)m_tapsellEvents & 1) != 0;
@@ -126,6 +151,8 @@ namespace EasyTapsell
             m_onErrorIsActive = ((int)m_tapsellEvents & 16) != 0;
             m_onNoNetworkIsActive = ((int)m_tapsellEvents & 32) != 0;
             m_onExpiringIsActive = ((int)m_tapsellEvents & 64) != 0;
+            m_onOpenIsActive = ((int)m_tapsellEvents & 128) != 0;
+            m_onCloseIsActive = ((int)m_tapsellEvents & 256) != 0;
         }
     }
 

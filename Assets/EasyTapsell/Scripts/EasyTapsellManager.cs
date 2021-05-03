@@ -9,13 +9,24 @@ namespace EasyTapsell
         // variable____________________________________________________________________
         [SerializeField] private bool m_initializeAtStart = true;
         [SerializeField] private string m_tapsellKey = "YOUR TAPSELL KEY";
-        private UnityEvent m_onAdCompeleted = new UnityEvent();
-        private UnityEvent m_onAdCanceled = new UnityEvent();
-        private UnityEvent m_onAdAvailable = new UnityEvent();
-        private UnityEvent m_onNoAdAvailable = new UnityEvent();
-        private UnityEvent m_onError = new UnityEvent();
-        private UnityEvent m_onNoNetwork = new UnityEvent();
-        private UnityEvent m_onExpiring = new UnityEvent();
+
+        // video ad events
+        private UnityEvent m_onVideoAdCompeleted = new UnityEvent();
+        private UnityEvent m_onVideoAdCanceled = new UnityEvent();
+        private UnityEvent m_onVideoAdAvailable = new UnityEvent();
+        private UnityEvent m_onNoVideoAdAvailable = new UnityEvent();
+        private UnityEvent m_onVideoError = new UnityEvent();
+        private UnityEvent m_onVideoNoNetwork = new UnityEvent();
+        private UnityEvent m_onVideoExpiring = new UnityEvent();
+        private UnityEvent m_onVideoOpen = new UnityEvent();
+        private UnityEvent m_onVideoClose = new UnityEvent();
+
+        // standard banner events
+        private UnityEvent m_onBannerAdAvailable = new UnityEvent();
+        private UnityEvent m_onNoBannerAdAvailable = new UnityEvent();
+        private UnityEvent m_onBannerError = new UnityEvent();
+        private UnityEvent m_onBannerNoNetwork = new UnityEvent();
+        private UnityEvent m_onBannerHide = new UnityEvent();
 
 
         // Property________________________________________________
@@ -26,13 +37,21 @@ namespace EasyTapsell
             private set;
         }
         public string TapsellKey { get => m_tapsellKey; private set => m_tapsellKey = value; }
-        public UnityEvent OnAdCompeleted { get => m_onAdCompeleted; set => m_onAdCompeleted = value; }
-        public UnityEvent OnAdCanceled { get => m_onAdCanceled; set => m_onAdCanceled = value; }
-        public UnityEvent OnAdAvailable { get => m_onAdAvailable; set => m_onAdAvailable = value; }
-        public UnityEvent OnNoAdAvailable { get => m_onNoAdAvailable; set => m_onNoAdAvailable = value; }
-        public UnityEvent OnError { get => m_onError; set => m_onError = value; }
-        public UnityEvent OnNoNetwork { get => m_onNoNetwork; set => m_onNoNetwork = value; }
-        public UnityEvent OnExpiring { get => m_onExpiring; set => m_onExpiring = value; }
+        public UnityEvent OnVideoAdCompeleted { get => m_onVideoAdCompeleted; private set => m_onVideoAdCompeleted = value; }
+        public UnityEvent OnVideoAdCanceled { get => m_onVideoAdCanceled; private set => m_onVideoAdCanceled = value; }
+        public UnityEvent OnVideoAdAvailable { get => m_onVideoAdAvailable; private set => m_onVideoAdAvailable = value; }
+        public UnityEvent OnNoVideoAdAvailable { get => m_onNoVideoAdAvailable; private set => m_onNoVideoAdAvailable = value; }
+        public UnityEvent OnVideoError { get => m_onVideoError; private set => m_onVideoError = value; }
+        public UnityEvent OnVideoNoNetwork { get => m_onVideoNoNetwork; private set => m_onVideoNoNetwork = value; }
+        public UnityEvent OnVideoExpiring { get => m_onVideoExpiring; private set => m_onVideoExpiring = value; }
+        public UnityEvent OnVideoOpen { get => m_onVideoOpen; private set => m_onVideoOpen = value; }
+        public UnityEvent OnVideoClose { get => m_onVideoClose; private set => m_onVideoClose = value; }
+
+        public UnityEvent OnBannerAdAvailable { get => m_onBannerAdAvailable; private set => m_onBannerAdAvailable = value; }
+        public UnityEvent OnNoBannerAdAvailable { get => m_onNoBannerAdAvailable; private set => m_onNoBannerAdAvailable = value; }
+        public UnityEvent OnBannerError { get => m_onBannerError; private set => m_onBannerError = value; }
+        public UnityEvent OnBannerNoNetwork { get => m_onBannerNoNetwork; private set => m_onBannerNoNetwork = value; }
+        public UnityEvent OnBannerHide { get => m_onBannerHide; private set => m_onBannerHide = value; }
 
 
         // monoBehaviour___________________________________________________________

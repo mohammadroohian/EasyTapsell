@@ -1138,7 +1138,7 @@ GameObject:
   - component: {fileID: 2835098099406445560}
   - component: {fileID: 5350604604651473478}
   m_Layer: 5
-  m_Name: Tapsell ManagerUI
+  m_Name: Easy Tapsell Manager UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1257,6 +1257,14 @@ MonoBehaviour:
         m_CallState: 2
   m_onExpiringIsActive: 0
   m_onExpiring:
+    m_PersistentCalls:
+      m_Calls: []
+  m_onOpenIsActive: 0
+  m_onOpen:
+    m_PersistentCalls:
+      m_Calls: []
+  m_onCloseIsActive: 0
+  m_onClose:
     m_PersistentCalls:
       m_Calls: []
 --- !u!1 &1582393316377610
