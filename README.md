@@ -35,6 +35,8 @@ You can customize the default user interface or use your own.
 2. Extract it.
 3. Copy the items in the `Assets` folder into the `Assets` folder of your project. (Click replace files if necessary)
 
+⚠ Notice: If you have `AndroidManifest` and `mainTemplate.gradle` files in your project, do not replace them, but follow [these instructions](https://docs.tapsell.ir/tapsell-sdk/unity/initialize-android/#%D8%AA%D9%86%D8%B8%DB%8C%D9%85%D8%A7%D8%AA-%D8%A7%D9%88%D9%84%DB%8C%D9%87-sdk).
+
 #### unitypackage file
 1. Install [NaughtyAttributes](https://github.com/dbrizov/NaughtyAttributes#installation).
 2. Install [PashmakCore](https://github.com/mohammadroohian/PashmakCore#installation).
@@ -59,11 +61,23 @@ The following are a number of practical cases.
 * OnExpiring
 
 ## How to use
-1. Drag and drop `Tapsell Manager` to scene from prefabs folder (set your tapsell key into `Tapsell Key` filed).
+1. Drag and drop `Tapsell Manager` to scene from prefabs folder (set [your tapsell key](https://dashboard.tapsell.ir/) into `Tapsell Key` filed).
 3. Drag and drop `Tapsell ManagerUI` to scene from prefabs folder.
 4. Drag and drop `Tapsell FakeAd Video` to scene from prefabs folder.
-5. Customize `Tapsell ManagerUI` itmes.
-6. Use `TapsellEventTrigger` component wherever you need to run the tasks you want at a particular event.
-7. Use `TapsellAdCaller` component to request an ad (set your zone id into `Zone ID` filed).
+5. Customize `Tapsell ManagerUI` itmes if needed (texts and images displayed in messages).
+
+![image](https://user-images.githubusercontent.com/80090999/116891222-b2f32e80-ac43-11eb-8a24-2aab44debf28.png)
+
+6. Use `TapsellEventTrigger` component wherever you need to run specific tasks on mentioned events. for example use `AdCompleted` event to give player gift for watching video.
+
+![trigger](https://user-images.githubusercontent.com/80090999/116892628-3feab780-ac45-11eb-81a2-c0cf405a2f0d.gif)
+
+7. Use `TapsellAdCaller` component to request an ad (set [your zone id](https://dashboard.tapsell.ir/) into `Zone ID` filed).
 
 ![USE](https://user-images.githubusercontent.com/80090999/116403125-70e07c00-a842-11eb-9bd6-8e0a141c098c.gif)
+
+### What is FakeAd Video?
+This is a panel that is displayed instead of video for debugging and testing, that will not be displayed on the Android build.
+
+![image](https://user-images.githubusercontent.com/80090999/116893399-2c8c1c00-ac46-11eb-9f5e-ccfa712c8de9.png)
+
