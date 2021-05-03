@@ -68,12 +68,8 @@ The following are a number of practical cases.
 
 6. Use `TapsellEventTrigger` component wherever you need to run specific tasks on mentioned events. for example use `AdCompleted` event to give player gift for whatching video.
 
-
-
-
+![trigger](https://user-images.githubusercontent.com/80090999/116892628-3feab780-ac45-11eb-81a2-c0cf405a2f0d.gif)
 
 7. Use `TapsellAdCaller` component to request an ad (set your zone id into `Zone ID` filed).
-
-
 
 ![USE](https://user-images.githubusercontent.com/80090999/116403125-70e07c00-a842-11eb-9bd6-8e0a141c098c.gif)
