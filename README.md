@@ -66,10 +66,16 @@ The following are a number of practical cases.
 
 ![image](https://user-images.githubusercontent.com/80090999/116891222-b2f32e80-ac43-11eb-8a24-2aab44debf28.png)
 
-6. Use `TapsellEventTrigger` component wherever you need to run specific tasks on mentioned events. for example use `AdCompleted` event to give player gift for whatching video.
+6. Use `TapsellEventTrigger` component wherever you need to run specific tasks on mentioned events. for example use `AdCompleted` event to give player gift for watching video.
 
 ![trigger](https://user-images.githubusercontent.com/80090999/116892628-3feab780-ac45-11eb-81a2-c0cf405a2f0d.gif)
 
 7. Use `TapsellAdCaller` component to request an ad (set your zone id into `Zone ID` filed).
 
 ![USE](https://user-images.githubusercontent.com/80090999/116403125-70e07c00-a842-11eb-9bd6-8e0a141c098c.gif)
+
+### What is FakeAd Video?
+This is a panel that is displayed instead of video for debugging and testing, that will not be displayed on the Android build.
+
+![image](https://user-images.githubusercontent.com/80090999/116893399-2c8c1c00-ac46-11eb-9f5e-ccfa712c8de9.png)
+
