@@ -34,7 +34,8 @@ You can customize the default user interface or use your own.
 1. Download a `source code` zip from [releases](https://github.com/mohammadroohian/EasyTapsell/releases).
 2. Extract it.
 3. Copy the items in the `Assets` folder into the `Assets` folder of your project. (Click replace files if necessary)
-Notice: If you have `AndroidManifest` and `mainTemplate.gradle` files in your project, do not replace them, but follow [these instructions](https://docs.tapsell.ir/tapsell-sdk/unity/initialize-android/#%D8%AA%D9%86%D8%B8%DB%8C%D9%85%D8%A7%D8%AA-%D8%A7%D9%88%D9%84%DB%8C%D9%87-sdk).
+
+⚠ Notice: If you have `AndroidManifest` and `mainTemplate.gradle` files in your project, do not replace them, but follow [these instructions](https://docs.tapsell.ir/tapsell-sdk/unity/initialize-android/#%D8%AA%D9%86%D8%B8%DB%8C%D9%85%D8%A7%D8%AA-%D8%A7%D9%88%D9%84%DB%8C%D9%87-sdk).
 
 #### unitypackage file
 1. Install [NaughtyAttributes](https://github.com/dbrizov/NaughtyAttributes#installation).
