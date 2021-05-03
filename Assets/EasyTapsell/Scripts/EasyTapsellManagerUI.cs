@@ -42,13 +42,13 @@ namespace EasyTapsell
             EasyTapsellManager.Instance.OnVideoExpiring.AddListener(HideAdLoadingDialog);
 
             // add fake dialog buttons to events
-            EasyTapsellManager.Instance.OnVideoAdCompeleted.AddListener(() => EasyTapsellAdFakeShow.Instance.Btn_OnAdCompeleted.gameObject.SetActive(true));
-            EasyTapsellManager.Instance.OnVideoAdCanceled.AddListener(() => EasyTapsellAdFakeShow.Instance.Btn_OnCanceled.gameObject.SetActive(true));
-            EasyTapsellManager.Instance.OnVideoAdAvailable.AddListener(() => EasyTapsellAdFakeShow.Instance.Btn_OnAdAvailable.gameObject.SetActive(true));
-            EasyTapsellManager.Instance.OnNoVideoAdAvailable.AddListener(() => EasyTapsellAdFakeShow.Instance.Btn_OnNoAdAvailable.gameObject.SetActive(true));
-            EasyTapsellManager.Instance.OnVideoError.AddListener(() => EasyTapsellAdFakeShow.Instance.Btn_OnError.gameObject.SetActive(true));
-            EasyTapsellManager.Instance.OnVideoNoNetwork.AddListener(() => EasyTapsellAdFakeShow.Instance.Btn_OnNoNetwork.gameObject.SetActive(true));
-            EasyTapsellManager.Instance.OnVideoExpiring.AddListener(() => EasyTapsellAdFakeShow.Instance.Btn_OnExpiring.gameObject.SetActive(true));
+            EasyTapsellManager.Instance.OnVideoAdCompeleted.AddListener(() => EasyTapsellVideoAdFakeShow.Instance.Btn_OnAdCompeleted.gameObject.SetActive(true));
+            EasyTapsellManager.Instance.OnVideoAdCanceled.AddListener(() => EasyTapsellVideoAdFakeShow.Instance.Btn_OnCanceled.gameObject.SetActive(true));
+            EasyTapsellManager.Instance.OnVideoAdAvailable.AddListener(() => EasyTapsellVideoAdFakeShow.Instance.Btn_OnAdAvailable.gameObject.SetActive(true));
+            EasyTapsellManager.Instance.OnNoVideoAdAvailable.AddListener(() => EasyTapsellVideoAdFakeShow.Instance.Btn_OnNoAdAvailable.gameObject.SetActive(true));
+            EasyTapsellManager.Instance.OnVideoError.AddListener(() => EasyTapsellVideoAdFakeShow.Instance.Btn_OnError.gameObject.SetActive(true));
+            EasyTapsellManager.Instance.OnVideoNoNetwork.AddListener(() => EasyTapsellVideoAdFakeShow.Instance.Btn_OnNoNetwork.gameObject.SetActive(true));
+            EasyTapsellManager.Instance.OnVideoExpiring.AddListener(() => EasyTapsellVideoAdFakeShow.Instance.Btn_OnExpiring.gameObject.SetActive(true));
         }
 
 

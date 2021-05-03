@@ -160,7 +160,7 @@ namespace EasyTapsell
             // Show ad.
             Tapsell.ShowAd(m_ad, options);
 #elif UNITY_ANDROID && UNITY_EDITOR
-            EasyTapsellAdFakeShow.ShowFakeVideoAdd(this);
+            EasyTapsellVideoAdFakeShow.ShowFakeVideoAdd(this);
             return;
 #elif !UNITY_ANDROID
             Debug.LogError("TapsellVideoCaller just work on android");

@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 namespace EasyTapsell
 {
-    public class EasyTapsellAdFakeShow : MonoBehaviour
+    public class EasyTapsellVideoAdFakeShow : MonoBehaviour
     {
         // variable____________________________________________________________________
         [SerializeField] private Button m_btn_OnAdCompeleted = null;
@@ -16,7 +16,7 @@ namespace EasyTapsell
 
 
         // property________________________________________________________________
-        public static EasyTapsellAdFakeShow Instance { get; private set; }
+        public static EasyTapsellVideoAdFakeShow Instance { get; private set; }
         public Button Btn_OnAdCompeleted { get => m_btn_OnAdCompeleted; private set => m_btn_OnAdCompeleted = value; }
         public Button Btn_OnCanceled { get => m_btn_OnCanceled; private set => m_btn_OnCanceled = value; }
         public Button Btn_OnAdAvailable { get => m_btn_OnAdAvailable; private set => m_btn_OnAdAvailable = value; }
