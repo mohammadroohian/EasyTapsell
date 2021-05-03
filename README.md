@@ -62,8 +62,18 @@ The following are a number of practical cases.
 1. Drag and drop `Tapsell Manager` to scene from prefabs folder (set your tapsell key into `Tapsell Key` filed).
 3. Drag and drop `Tapsell ManagerUI` to scene from prefabs folder.
 4. Drag and drop `Tapsell FakeAd Video` to scene from prefabs folder.
-5. Customize `Tapsell ManagerUI` itmes.
-6. Use `TapsellEventTrigger` component wherever you need to run the tasks you want at a particular event.
+5. Customize `Tapsell ManagerUI` itmes if needed (texts and images displayed in messages).
+
+![image](https://user-images.githubusercontent.com/80090999/116891222-b2f32e80-ac43-11eb-8a24-2aab44debf28.png)
+
+6. Use `TapsellEventTrigger` component wherever you need to run specific tasks on mentioned events. for example use `AdCompleted` event to give player gift for whatching video.
+
+
+
+
+
 7. Use `TapsellAdCaller` component to request an ad (set your zone id into `Zone ID` filed).
+
+
 
 ![USE](https://user-images.githubusercontent.com/80090999/116403125-70e07c00-a842-11eb-9bd6-8e0a141c098c.gif)
