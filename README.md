@@ -61,18 +61,18 @@ The following are a number of practical cases.
 * OnExpiring
 
 ## How to use
-1. Drag and drop `Tapsell Manager` to scene from prefabs folder (set [your tapsell key](https://dashboard.tapsell.ir/) into `Tapsell Key` filed).
-3. Drag and drop `Tapsell ManagerUI` to scene from prefabs folder.
-4. Drag and drop `Tapsell FakeAd Video` to scene from prefabs folder.
-5. Customize `Tapsell ManagerUI` itmes if needed (texts and images displayed in messages).
+1. Drag and drop `Easy Tapsell Manager` to scene from prefabs folder (set [your tapsell key](https://dashboard.tapsell.ir/) into `Tapsell Key` filed).
+3. Drag and drop `Easy Tapsell Manager UI` to scene from prefabs folder.
+4. Drag and drop `Easy Tapsell Fake Video Ad ` to scene from prefabs folder.
+5. Customize `Easy Tapsell Manager UI` itmes if needed (texts and images displayed in messages).
 
-![image](https://user-images.githubusercontent.com/80090999/116891222-b2f32e80-ac43-11eb-8a24-2aab44debf28.png)
+![image](https://user-images.githubusercontent.com/80090999/116940867-d5a53780-ac83-11eb-93cf-f3e6b498169d.png)
 
-6. Use `TapsellEventTrigger` component wherever you need to run specific tasks on mentioned events. for example use `AdCompleted` event to give player gift for watching video.
+6. Use `EasyTapsellEventTrigger` component wherever you need to run specific tasks on mentioned events. for example use `AdCompleted` event to give player gift for watching video.
 
 ![trigger](https://user-images.githubusercontent.com/80090999/116892628-3feab780-ac45-11eb-81a2-c0cf405a2f0d.gif)
 
-7. Use `TapsellAdCaller` component to request an ad (set [your zone id](https://dashboard.tapsell.ir/) into `Zone ID` filed).
+7. Use `EasyTapsellVideoAdCaller` component to request an ad (set [your zone id](https://dashboard.tapsell.ir/) into `Zone ID` filed).
 
 ![USE](https://user-images.githubusercontent.com/80090999/116403125-70e07c00-a842-11eb-9bd6-8e0a141c098c.gif)
 
