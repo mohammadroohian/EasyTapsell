@@ -1170,7 +1170,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1879020024310406, guid: 7423623e731ce7b4f88888ebe91f5b80, type: 3}
       propertyPath: m_Name
-      value: Easy Tapsell FakeAd Video
+      value: 'Easy Tapsell Fake Video Ad '
       objectReference: {fileID: 0}
     - target: {fileID: 4833112964468218, guid: 7423623e731ce7b4f88888ebe91f5b80, type: 3}
       propertyPath: m_LocalPosition.x

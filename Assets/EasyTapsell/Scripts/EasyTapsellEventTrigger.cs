@@ -5,7 +5,7 @@ using UnityEngine.Events;
 
 namespace EasyTapsell
 {
-    public class TapsellEventTrigger : MonoBehaviour
+    public class EasyTapsellEventTrigger : MonoBehaviour
     {
         public enum TapsellEventType
         {
@@ -79,37 +79,37 @@ namespace EasyTapsell
         void Start()
         {
             // add this trigger event to manager
-            TapsellManager.Instance.OnAdCompeleted.AddListener(() =>
+            EasyTapsellManager.Instance.OnAdCompeleted.AddListener(() =>
             {
                 if (IsActive && m_onAdCompeletedIsActive)
                     OnAdCompeleted.Invoke();
             });
-            TapsellManager.Instance.OnAdCanceled.AddListener(() =>
+            EasyTapsellManager.Instance.OnAdCanceled.AddListener(() =>
             {
                 if (IsActive && m_onAdCanceledIsActive)
                     OnAdCanceled.Invoke();
             });
-            TapsellManager.Instance.OnAdAvailable.AddListener(() =>
+            EasyTapsellManager.Instance.OnAdAvailable.AddListener(() =>
             {
                 if (IsActive && m_onAdAvailableIsActive)
                     OnAdAvailable.Invoke();
             });
-            TapsellManager.Instance.OnNoAdAvailable.AddListener(() =>
+            EasyTapsellManager.Instance.OnNoAdAvailable.AddListener(() =>
             {
                 if (IsActive && m_onNoAdAvailableIsActive)
                     OnNoAdAvailable.Invoke();
             });
-            TapsellManager.Instance.OnError.AddListener(() =>
+            EasyTapsellManager.Instance.OnError.AddListener(() =>
             {
                 if (IsActive && m_onErrorIsActive)
                     OnError.Invoke();
             });
-            TapsellManager.Instance.OnNoNetwork.AddListener(() =>
+            EasyTapsellManager.Instance.OnNoNetwork.AddListener(() =>
             {
                 if (IsActive && m_onNoNetworkIsActive)
                     OnNoNetwork.Invoke();
             });
-            TapsellManager.Instance.OnExpiring.AddListener(() =>
+            EasyTapsellManager.Instance.OnExpiring.AddListener(() =>
             {
                 if (IsActive && m_onExpiringIsActive)
                     OnExpiring.Invoke();

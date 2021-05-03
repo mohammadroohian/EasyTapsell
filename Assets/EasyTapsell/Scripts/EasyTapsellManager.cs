@@ -4,7 +4,7 @@ using UnityEngine.Events;
 
 namespace EasyTapsell
 {
-    public class TapsellManager : MonoBehaviour
+    public class EasyTapsellManager : MonoBehaviour
     {
         // variable____________________________________________________________________
         [SerializeField] private bool m_initializeAtStart = true;
@@ -19,7 +19,7 @@ namespace EasyTapsell
 
 
         // Property________________________________________________
-        public static TapsellManager Instance { get; private set; }
+        public static EasyTapsellManager Instance { get; private set; }
         public static bool IsInitialized
         {
             get;

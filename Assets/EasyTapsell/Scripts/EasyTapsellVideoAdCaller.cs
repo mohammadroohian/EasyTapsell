@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 namespace EasyTapsell
 {
-    public class TapsellVideoAdCaller : MonoBehaviour
+    public class EasyTapsellVideoAdCaller : MonoBehaviour
     {
         public enum TapsellVideoAdType
         {
@@ -44,7 +44,7 @@ namespace EasyTapsell
         {
             // Check show ad automatically or not after when video is availble.
             if (AutoShowAd)
-                TapsellManager.Instance.OnAdAvailable.AddListener(ShowAd);
+                EasyTapsellManager.Instance.OnAdAvailable.AddListener(ShowAd);
         }
 
 
@@ -60,7 +60,7 @@ namespace EasyTapsell
                     this.Ad = result;
 
                     // Invoke TapsellManager events.
-                    TapsellManager.Instance.OnAdAvailable.Invoke();
+                    EasyTapsellManager.Instance.OnAdAvailable.Invoke();
                 },
 
                 (string zoneId) =>
@@ -69,7 +69,7 @@ namespace EasyTapsell
                     Debug.Log("No Ad Available");
 
                     // Invoke TapsellManager events.
-                    TapsellManager.Instance.OnNoAdAvailable.Invoke();
+                    EasyTapsellManager.Instance.OnNoAdAvailable.Invoke();
                 },
 
                 (TapsellError error) =>
@@ -78,7 +78,7 @@ namespace EasyTapsell
                     Debug.Log(error.message);
 
                     // Invoke TapsellManager events.
-                    TapsellManager.Instance.OnError.Invoke();
+                    EasyTapsellManager.Instance.OnError.Invoke();
                 },
 
                 (string zoneId) =>
@@ -87,7 +87,7 @@ namespace EasyTapsell
                     Debug.Log("No Network: " + zoneId);
 
                     // Invoke TapsellManager events.
-                    TapsellManager.Instance.OnNoNetwork.Invoke();
+                    EasyTapsellManager.Instance.OnNoNetwork.Invoke();
                 },
 
                 (TapsellAd result) =>
@@ -98,7 +98,7 @@ namespace EasyTapsell
                     this.Ad = null;
 
                     // Invoke TapsellManager events.
-                    TapsellManager.Instance.OnExpiring.Invoke();
+                    EasyTapsellManager.Instance.OnExpiring.Invoke();
                     RequestAd(result.zoneId, false);
                 }
             );
@@ -106,7 +106,7 @@ namespace EasyTapsell
         public void RequestAd()
         {
             if (ShowLoadingDialog)
-                TapsellManagerUI.Instance.ShowAdLoadingDialog();
+                EasyTapsellManagerUI.Instance.ShowAdLoadingDialog();
 #if UNITY_ANDROID && !UNITY_EDITOR
             // Set reward function.
             Tapsell.SetRewardListener(Tapsell_OnGetReward);
@@ -118,7 +118,7 @@ namespace EasyTapsell
             if (AutoShowAd)
             {
                 // Invoke TapsellManager events.
-                TapsellManager.Instance.OnAdAvailable.Invoke();
+                EasyTapsellManager.Instance.OnAdAvailable.Invoke();
             }
 #elif !UNITY_ANDROID
             Debug.LogError("TapsellVideoCaller just work on android");
@@ -142,7 +142,7 @@ namespace EasyTapsell
             // Show ad.
             Tapsell.ShowAd(m_ad, options);
 #elif UNITY_ANDROID && UNITY_EDITOR
-            TapsellAdFakeShow.ShowFakeVideoAdd(this);
+            EasyTapsellAdFakeShow.ShowFakeVideoAdd(this);
             return;
 #elif !UNITY_ANDROID
             Debug.LogError("TapsellVideoCaller just work on android");
@@ -154,12 +154,12 @@ namespace EasyTapsell
             if ((result.completed && result.rewarded) || AdType == TapsellVideoAdType.Interstitial)
             {
                 // Invoke TapsellManager events.
-                TapsellManager.Instance.OnAdCompeleted.Invoke();
+                EasyTapsellManager.Instance.OnAdCompeleted.Invoke();
             }
             else
             {
                 // Invoke TapsellManager events.
-                TapsellManager.Instance.OnAdCanceled.Invoke();
+                EasyTapsellManager.Instance.OnAdCanceled.Invoke();
             }
         }
     }
