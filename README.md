@@ -49,7 +49,8 @@ You can customize the default user interface or use your own.
 To learn more about how these components work, check out the sample scenes.
 The following are a number of practical cases.
 
-![showcase](https://user-images.githubusercontent.com/80090999/116399234-f281db00-a83d-11eb-905d-2edc51e11f23.gif)
+![banner](https://user-images.githubusercontent.com/80090999/116980018-f77dd900-acda-11eb-949f-975bfbfbeab1.gif)
+![video](https://user-images.githubusercontent.com/80090999/116980196-30b64900-acdb-11eb-8389-0fd17f66c844.gif)
 
 #### Video Events
 * OnAdCompeleted
