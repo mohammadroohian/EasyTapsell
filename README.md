@@ -51,7 +51,7 @@ The following are a number of practical cases.
 
 ![showcase](https://user-images.githubusercontent.com/80090999/116399234-f281db00-a83d-11eb-905d-2edc51e11f23.gif)
 
-### Events
+#### Video Events
 * OnAdCompeleted
 * OnAdCanceled
 * OnAdAvailable
@@ -59,6 +59,15 @@ The following are a number of practical cases.
 * OnError
 * OnNoNetwork
 * OnExpiring
+* Open
+* Close
+
+#### Video Events
+* OnAdAvailable
+* OnNoAdAvailable
+* OnError
+* OnNoNetwork
+* Hide
 
 ## How to use
 1. Drag and drop `Easy Tapsell Manager` to scene from prefabs folder (set [your tapsell key](https://dashboard.tapsell.ir/) into `Tapsell Key` filed).
