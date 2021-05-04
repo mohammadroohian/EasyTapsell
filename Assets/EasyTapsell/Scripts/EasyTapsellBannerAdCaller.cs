@@ -56,15 +56,15 @@ namespace EasyTapsell
         // monoBehaviour___________________________________________________________
         private void Awake()
         {
-            // Add request video ad for help automatically.
+            // Add request banner ad for help automatically.
             if (AutoAddRequestToButton)
                 GetComponent<Button>().onClick.AddListener(RequestAd);
         }
         private void Start()
         {
-            // Check show ad automatically or not after when video is availble.
+            // Check show ad automatically or not after when banner is availble.
             if (AutoShowAd)
-                EasyTapsellManager.Instance.OnVideoAdAvailable.AddListener(ShowAd);
+                EasyTapsellManager.Instance.OnBannerAdAvailable.AddListener(ShowAd);
         }
 
 
@@ -79,7 +79,7 @@ namespace EasyTapsell
                     this.Available = true;
 
                     // Invoke TapsellManager events.
-                    EasyTapsellManager.Instance.OnVideoAdAvailable.Invoke();
+                    EasyTapsellManager.Instance.OnBannerAdAvailable.Invoke();
                 },
 
                 (string zoneId) =>
@@ -88,7 +88,7 @@ namespace EasyTapsell
                     Debug.Log("No Ad Available");
 
                     // Invoke TapsellManager events.
-                    EasyTapsellManager.Instance.OnNoVideoAdAvailable.Invoke();
+                    EasyTapsellManager.Instance.OnNoBannerAdAvailable.Invoke();
                 },
 
                 (TapsellError error) =>
@@ -97,7 +97,7 @@ namespace EasyTapsell
                     Debug.Log(error.message);
 
                     // Invoke TapsellManager events.
-                    EasyTapsellManager.Instance.OnVideoError.Invoke();
+                    EasyTapsellManager.Instance.OnBannerError.Invoke();
                 },
 
                 (string zoneId) =>
@@ -106,7 +106,7 @@ namespace EasyTapsell
                     Debug.Log("No Network: " + zoneId);
 
                     // Invoke TapsellManager events.
-                    EasyTapsellManager.Instance.OnVideoNoNetwork.Invoke();
+                    EasyTapsellManager.Instance.OnBannerNoNetwork.Invoke();
                 },
 
                 (string zoneId) =>
@@ -130,7 +130,7 @@ namespace EasyTapsell
                 EasyTapsellManager.Instance.OnBannerAdAvailable.Invoke();
             }
 #elif !UNITY_ANDROID
-            Debug.LogError("TapsellVideoCaller just work on android");
+            Debug.LogError("TapsellBannerCaller just work on android");
 #endif
         }
         public void ShowAd()
@@ -142,10 +142,10 @@ namespace EasyTapsell
             Tapsell.ShowBannerAd(ZoneId);
 #elif UNITY_ANDROID && UNITY_EDITOR
             // show test panel in editor 
-            //EasyTapsellAdFakeShow.ShowFakeVideoAdd(this);
+            EasyTapsellBannerAdFakeShow.ShowFakeAd(this);
             return;
 #elif !UNITY_ANDROID
-            Debug.LogError("TapsellVideoCaller just work on android");
+            Debug.LogError("TapsellBannerCaller just work on android");
 #endif
         }
         public void Hide() => Tapsell.HideBannerAd(ZoneId);

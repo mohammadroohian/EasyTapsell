@@ -123,8 +123,10 @@ namespace EasyTapsell
         }
         public void RequestAd()
         {
+            // loading dialog
             if (ShowLoadingDialog)
                 EasyTapsellManagerUI.Instance.ShowAdLoadingDialog();
+
 #if UNITY_ANDROID && !UNITY_EDITOR
             // Set reward function.
             Tapsell.SetRewardListener(Tapsell_OnGetReward);
@@ -160,7 +162,7 @@ namespace EasyTapsell
             // Show ad.
             Tapsell.ShowAd(m_ad, options);
 #elif UNITY_ANDROID && UNITY_EDITOR
-            EasyTapsellVideoAdFakeShow.ShowFakeVideoAdd(this);
+            EasyTapsellVideoAdFakeShow.ShowFakeAd(this);
             return;
 #elif !UNITY_ANDROID
             Debug.LogError("TapsellVideoCaller just work on android");
