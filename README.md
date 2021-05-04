@@ -75,7 +75,7 @@ The following are a number of practical cases.
 4. Drag and drop `Easy Tapsell Fake Video Ad ` to scene from prefabs folder.
 5. Customize `Easy Tapsell Manager UI` itmes if needed (texts and images displayed in messages).
 
-![image](https://user-images.githubusercontent.com/80090999/116940867-d5a53780-ac83-11eb-93cf-f3e6b498169d.png)
+![image](https://user-images.githubusercontent.com/80090999/116976896-f8147080-acd6-11eb-8b98-0d6f5ce3e858.png)
 
 6. Use `EasyTapsellVideoEventTrigger` or `EasyTapsellBannerEventTrigger` component wherever you need to run specific tasks on mentioned events. for example use `AdCompleted` event to give player gift for watching video.
 
@@ -85,8 +85,9 @@ The following are a number of practical cases.
 
 ![USE](https://user-images.githubusercontent.com/80090999/116403125-70e07c00-a842-11eb-9bd6-8e0a141c098c.gif)
 
-### What is FakeAd Video?
-This is a panel that is displayed instead of video for debugging and testing, that will not be displayed on the Android build.
+### What is FakeAd Show?
+This is a panel that is displayed instead of video or banner for debugging and testing, that will not be displayed on the Android build.
 
-![image](https://user-images.githubusercontent.com/80090999/116893399-2c8c1c00-ac46-11eb-9f5e-ccfa712c8de9.png)
+![image](https://user-images.githubusercontent.com/80090999/116977249-7113c800-acd7-11eb-8def-86399e21c1d3.png)
 
+![image](https://user-images.githubusercontent.com/80090999/116977171-5d686180-acd7-11eb-96bf-56da28d3ea26.png)
