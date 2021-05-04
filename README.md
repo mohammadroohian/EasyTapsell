@@ -68,11 +68,11 @@ The following are a number of practical cases.
 
 ![image](https://user-images.githubusercontent.com/80090999/116940867-d5a53780-ac83-11eb-93cf-f3e6b498169d.png)
 
-6. Use `EasyTapsellEventTrigger` component wherever you need to run specific tasks on mentioned events. for example use `AdCompleted` event to give player gift for watching video.
+6. Use `EasyTapsellVideoEventTrigger` or `EasyTapsellBannerEventTrigger` component wherever you need to run specific tasks on mentioned events. for example use `AdCompleted` event to give player gift for watching video.
 
 ![trigger](https://user-images.githubusercontent.com/80090999/116892628-3feab780-ac45-11eb-81a2-c0cf405a2f0d.gif)
 
-7. Use `EasyTapsellVideoAdCaller` component to request an ad (set [your zone id](https://dashboard.tapsell.ir/) into `Zone ID` filed).
+7. Use `EasyTapsellVideoAdCaller` or `EasyTapsellBannerAdCaller` component to request an ad (set [your zone id](https://dashboard.tapsell.ir/) into `Zone ID` filed).
 
 ![USE](https://user-images.githubusercontent.com/80090999/116403125-70e07c00-a842-11eb-9bd6-8e0a141c098c.gif)
 
