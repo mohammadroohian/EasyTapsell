@@ -89,5 +89,4 @@ The following are a number of practical cases.
 This is a panel that is displayed instead of video or banner for debugging and testing, that will not be displayed on the Android build.
 
 ![image](https://user-images.githubusercontent.com/80090999/116977249-7113c800-acd7-11eb-8def-86399e21c1d3.png)
-
 ![image](https://user-images.githubusercontent.com/80090999/116977171-5d686180-acd7-11eb-96bf-56da28d3ea26.png)
