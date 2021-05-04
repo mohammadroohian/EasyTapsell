@@ -62,7 +62,7 @@ The following are a number of practical cases.
 * Open
 * Close
 
-#### Video Events
+#### Banner Events
 * OnAdAvailable
 * OnNoAdAvailable
 * OnError
